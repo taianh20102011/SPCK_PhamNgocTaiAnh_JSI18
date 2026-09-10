@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Nền Tảng Quản Lý Học Tập & AI Hỗ Trợ Toàn Diện</title>
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="./assets/css/basic.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header / Navigation Bar -->
+  <header class="landing-header">
+    <div class="header-container">
+      <a href="index.html" class="brand" aria-label="BrainlyX"><img src="assets/images/brainlyx-logo.svg" alt="BrainlyX"></a>
+
+      <nav class="landing-nav">
+        <a href="#features">Tính năng</a>
+        <a href="#documents-section">Kho Tài Liệu</a>
+        <a href="#gamification">Hệ thống Rank</a>
+        <!-- Nút chuyển sang trang Góp ý -->
+        <a href="./page/html/user/feedback.html" id="btnGoToFeedback" class="btn btn-feedback">
+          💬 Gửi góp ý
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="./page/html/auth/login.html" class="btn">Đăng Nhập</a>
+        <a href="./page/html/auth/register.html" class="btn btn-primary">Trải Nghiệm Miễn Phí</a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="badge-pill">✨ Nền tảng học tập thông minh thế hệ mới</span>
+      <h1>Bứt Phá Điểm Số Với Trợ Lý Học Tập AI & Quản Lý Toàn Diện</h1>
+      <p class="hero-subtitle">
+        BrainlyX tích hợp tất cả công cụ học sinh cần: Thời khóa biểu thông minh, Pomodoro tập trung, Sổ tay công thức,
+        Kho tài liệu Lớp 6–12 và Trợ lý AI giải bài tập từng bước.
+      </p>
+      <div class="hero-buttons">
+        <a href="./page/html/auth/register.html" class="btn btn-primary btn-lg">Bắt Đầu Học Ngay</a>
+        <a href="#documents-section" class="btn btn-lg">Khám Phá Tài Liệu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid Section -->
+  <section id="features" class="section-container">
+    <div class="section-title">
+      <h2>Giải Pháp Học Tập Đột Phá</h2>
+      <p>Mọi công cụ bạn cần để làm chủ kiến thức và quản lý thời gian hiệu quả hơn mỗi ngày.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="glass-card feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>AI Homework Assistant</h3>
+        <p>Giải thích từng bước chi tiết cho các bài toán hóc búa, phân tích tác phẩm Ngữ Văn và chữa lỗi Tiếng Anh cùng
+          công nghệ Gemini AI.</p>
+      </div>
+
+      <div class="glass-card feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Quản Lý Điểm & Mục Tiêu</h3>
+        <p>Theo dõi tiến độ học tập, tự động tính điểm trung bình môn và đưa ra dự báo để giúp bạn luôn đi đúng hướng.
+        </p>
+      </div>
+
+      <div class="glass-card feature-card">
+        <div class="feature-icon">⏱</div>
+        <h3>Pomodoro & Gamification</h3>
+        <p>Rèn luyện tính tự học với bộ đếm giờ Pomodoro. Tích lũy điểm EXP, thăng cấp Level và mở khóa các huy hiệu
+          thành tích độc đáo.</p>
+      </div>
+
+      <div class="glass-card feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Sổ Tay Kiến Thức Dạng Notion</h3>
+        <p>Ghi chép bài học gọn gàng, lưu trữ công thức Toán - Lý - Hóa, đính kèm hình ảnh minh họa dễ dàng tra cứu mọi
+          lúc.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KHO TÀI LIỆU SECTION (GRADE 6 - 12) -->
+  <section id="documents-section" class="section-container bg-light-alt">
+    <div class="section-title">
+      <h2>📚 Kho Tài Liệu Học Tập (Lớp 6 – 12)</h2>
+      <p>Tra cứu đề thi, chuyên đề bài giảng, tóm tắt lý thuyết được kiểm duyệt chất lượng.</p>
+    </div>
+
+    <!-- Thanh tìm kiếm & Bộ lọc tài liệu -->
+    <div class="doc-filter-bar glass-card">
+      <div class="search-box">
+        <input type="text" id="doc-search-input" class="input-field"
+          placeholder="🔎 Nhập tên tài liệu, đề thi, chuyên đề (VD: Công thức Đenta, Đề thi học kỳ 1 Toán 9)...">
+      </div>
+
+      <div class="filter-controls">
+        <select id="doc-grade-filter" class="input-field select-filter">
+          <option value="all">Tất cả khối lớp</option>
+          <option value="6">Lớp 6</option>
+          <option value="7">Lớp 7</option>
+          <option value="8">Lớp 8</option>
+          <option value="9">Lớp 9</option>
+          <option value="10">Lớp 10</option>
+          <option value="11">Lớp 11</option>
+          <option value="12">Lớp 12</option>
+        </select>
+
+        <select id="doc-subject-filter" class="input-field select-filter">
+          <option value="all">Tất cả môn học</option>
+          <option value="math">Toán Học</option>
+          <option value="literature">Ngữ Văn</option>
+          <option value="english">Tiếng Anh</option>
+          <option value="physics">Vật Lý</option>
+          <option value="chemistry">Hóa Học</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Khung Danh Sách Tài Liệu (Chờ JS Render dữ liệu) -->
+    <div id="documents-grid-container" class="documents-grid">
+      <div class="glass-card doc-card-placeholder">
+        <div class="doc-badge">Lớp 9 • Toán</div>
+        <h4 class="doc-title">Tổng hợp Công thức & Dạng bài Ôn thi Vào 10 Môn Toán</h4>
+        <p class="doc-desc">Tài liệu tóm tắt toàn bộ lý thuyết Đại số & Hình học trọng tâm kèm bài tập có lời giải.</p>
+        <div class="doc-footer">
+          <span class="doc-author">BrainlyX Team</span>
+          <button class="btn btn-sm btn-primary" onclick="location.href='./page/html/auth/login.html'">Xem tài liệu</button>
+        </div>
+      </div>
+    </div>
+    <div id="documentsPagination" class="brx-pagination"></div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="glass-card cta-card">
+      <h2>Sẵn Sàng Nâng Cao Kết Quả Học Tập?</h2>
+      <p>Tạo tài khoản ngay hôm nay để trải nghiệm toàn bộ tính năng hoàn toàn miễn phí.</p>
+      <a href="./page/html/auth/register.html" class="btn btn-primary btn-lg">Đăng Ký Tài Khoản Miễn Phí</a>
+    </div>
+  </section>
+
+  <!-- Premium Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand" aria-label="BrainlyX"><img src="assets/images/brainlyx-logo.svg" alt="BrainlyX"></a>
+        <p class="brand-desc">
+          Nền tảng quản lý học tập toàn diện tích hợp AI do Phạm Ngọc Tài Anh phát triển. Đồng hành cùng học sinh Việt
+          Nam bứt phá điểm số, tối ưu thời
+          gian và làm chủ kiến thức.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook">FB</a>
+          <a href="#" class="social-btn" title="Discord">DC</a>
+          <a href="#" class="social-btn" title="YouTube">YT</a>
+          <a href="#" class="social-btn" title="GitHub">GH</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Khám Phá</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="index.html#features">Tính năng nổi bật</a></li>
+          <li><a href="index.html#documents-section">Kho tài liệu (Lớp 6–12)</a></li>
+          <li><a href="./page/html/auth/login.html">Đăng nhập</a></li>
+          <li><a href="./page/html/auth/register.html">Đăng ký tài khoản</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Tính Năng Cốt Lõi</h4>
+        <ul class="footer-links">
+          <li><a href="./page/html/user/dashboard.html">📊 Dashboard cá nhân</a></li>
+          <li><a href="./page/html/user/dashboard.html">🤖 AI Homework Assistant</a></li>
+          <li><a href="./page/html/user/dashboard.html">⏱ Pomodoro Timer</a></li>
+          <li><a href="./page/html/user/note.html">📝 Sổ tay kiến thức</a></li>
+          <li><a href="./page/html/user/quiz.html">🧠 Quiz & Flashcards</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Cộng Đồng & Hỗ Trợ</h4>
+        <p class="footer-contact-item">📧 Email: <span>support@brainlyx.edu.vn</span></p>
+        <p class="footer-contact-item">💬 Hotline / Zalo: <span>0900 xxx xxx</span></p>
+        <div class="badge-status">
+          <span class="status-dot"></span> Hệ thống đang vận hành 100%
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>© 2026 BrainlyX. Tất cả quyền được bảo lưu.</p>
+        <div class="legal-links">
+          <a href="#">Điều khoản sử dụng</a>
+          <span class="dot">•</span>
+          <a href="#">Chính sách bảo mật</a>
+          <span class="dot">•</span>
+          <a href="#">Hướng dẫn sử dụng</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./assets/js/menu-toggle.js"></script>
+  <script type="module" src="./assets/js/documents-landing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainlyX - Kho kiến thức</title>
+    <link rel="stylesheet" href="../../../assets/css/knowledge.css">
+    <link rel="stylesheet" href="../../../assets/css/basic.css">
+    <link rel="stylesheet" href="../../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+
+<body>
+    <!-- Sidebar Sidebar -->
+    <aside class="sidebar">
+        <div class="brand" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"></div>
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+            <li><a href="comming.html" class="nav-link">📅 Thời khóa biểu</a></li>
+            <li><a href="note.html" class="nav-link">📝 Sổ tay</a></li>
+            <li><a href="quiz.html" class="nav-link">🧠 Luyện tập</a></li>
+            <li><a href="knowledge.html" class="nav-link active">📚 Kho kiến thức</a></li>
+        </ul>
+
+        <!-- User Profile Widget Container -->
+        <div class="user-profile-summary">
+            <div style="display: flex; justify-content: space-between;">
+                <span id="user-display-name" style="font-weight: 700;">Đang tải...</span>
+                <span id="user-level" style="color: var(--accent-warning); font-weight: 700;">Lv.1</span>
+            </div>
+            <div class="exp-bar-container">
+                <div id="user-exp-bar" class="exp-bar-fill"></div>
+            </div>
+            <!-- <a style="text-decoration: none;" href="user.html"><button class="btn">👤 Profile</button></a>
+            <button id="btn-logout" class="btn" style="color: var(--accent-danger); margin-top: 12px; padding: 0;">Đăng xuất</button>
+        </div> -->
+    </aside>
+
+    <main class="main-content">
+        <header class="app-page-header knowledge-page-header">
+            <div class="page-title-block">
+                <span class="eyebrow">TRUNG TÂM HỌC TẬP</span>
+                <h1>Kho kiến thức</h1>
+                <p>Tìm nhanh bài học, công thức và tài liệu trọng tâm.</p>
+            </div>
+            <div class="header-actions">
+                <span class="header-badge">📚 Thư viện học tập</span>
+                <a class="btn" href="user.html">👤 Hồ sơ</a>
+                <button class="btn btn-header-logout" data-action="logout">Đăng xuất</button>
+            </div>
+        </header>
+        <!-- Khu vực tìm kiếm + bộ lọc -->
+        <section class="kb-hero-section">
+            <div class="kb-hero-copy">
+                <div>
+                    <span class="kb-hero-kicker">✨ HỌC NHANH • NHỚ LÂU</span>
+                    <h2>Khám phá kho kiến thức của bạn</h2>
+                    <p>Tổng hợp lý thuyết, công thức và bài học được sắp xếp để bạn tìm đúng thứ cần học trong vài giây.</p>
+                </div>
+                <div class="kb-search-bar">
+                    <span class="kb-search-icon" aria-hidden="true">🔍</span>
+                    <input type="text" id="kbSearchInput" placeholder="Tìm kiếm công thức, lý thuyết, từ vựng..." aria-label="Tìm kiếm kho kiến thức">
+                </div>
+            </div>
+            <div class="kb-toolbar">
+                <div>
+                    <span class="toolbar-label">Lọc theo môn</span>
+                    <div class="filter-chips" role="group" aria-label="Lọc theo môn học">
+                        <button class="chip-btn active" data-filter="all">Tất cả</button>
+                        <button class="chip-btn" data-filter="math">Toán Học</button>
+                        <button class="chip-btn" data-filter="physics">Vật Lý</button>
+                        <button class="chip-btn" data-filter="english">Tiếng Anh</button>
+                        <button class="chip-btn" data-filter="chemistry">Hóa Học</button>
+                    </div>
+                </div>
+                <span class="kb-shortcut">Mẹo: nhập từ khóa để lọc tức thì</span>
+            </div>
+        </section>
+
+        <!-- Layout Chính -->
+        <div class="kb-main-layout">
+            <section class="kb-results" aria-label="Danh sách bài học">
+                <div class="kb-section-heading">
+                    <div>
+                        <span class="section-kicker">BÀI HỌC</span>
+                        <h2>Kho kiến thức</h2>
+                    </div>
+                    <span class="kb-section-note">Cập nhật liên tục</span>
+                </div>
+                <div class="kb-cards-grid" id="kbCardsContainer">
+                    <p class="kb-empty-text">⏳ Đang tải chương trình học...</p>
+                </div>
+                <div id="kbPagination" class="brx-pagination"></div>
+            </section>
+
+            <aside class="kb-sidebar-section" aria-label="Bài học đã ghim">
+                <div class="glass-card pinned-card">
+                    <div class="pinned-card-heading">
+                        <div>
+                            <span class="section-kicker">CỦA BẠN</span>
+                            <h3>📌 Bài học đã ghim <span id="kbPinnedCount" class="pinned-count">0</span></h3>
+                        </div>
+                    </div>
+                    <ul class="pinned-list">
+                        <li class="pinned-info"><p>⏳ Đang tải...</p></li>
+                    </ul>
+                </div>
+
+                <div class="kb-tip-card">
+                    <span class="kb-tip-icon">💡</span>
+                    <div>
+                        <strong>Học hiệu quả hơn</strong>
+                        <p>Ghim các bài quan trọng để quay lại ôn tập nhanh trước khi kiểm tra.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a
+                    href="feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+    </main>
+
+    <!-- Đảm bảo đường dẫn JS chuẩn xác để không bị lỗi 404 -->
+    <script type="module" src="../../../assets/js/tabs-user/knowledge.js"></script>
+    <script src="../../../assets/js/menu-toggle.js"></script>
+    <script type="module" src="../../../assets/js/app-shell.js"></script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...args) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "e4qdiWBuEAj-3NVi9OOtC"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+</body>
+
+</html>

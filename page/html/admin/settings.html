@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Cấu Hình</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/admin.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar admin-sidebar">
+      <div class="brand brand-admin" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"><span class="admin-badge"><span style="color: black;">ADMIN</span></span></div>
+      <ul class="nav-menu">
+        <li><a href="overview.html" class="nav-link">📊 Tổng quan</a></li>
+        <li><a href="users.html" class="nav-link">👥 Quản lý người dùng</a></li>
+        <li><a href="content.html" class="nav-link">📚 Kho kiến thức</a></li>
+        <li><a href="logs.html" class="nav-link">📜 Nhật ký hệ thống</a></li>
+        <li><a href="settings.html" class="nav-link active">⚙️ Cấu hình</a></li>
+      </ul>
+      <button class="btn" data-action="logout" style="margin-top:auto;color:var(--accent-danger);">↪ Đăng xuất</button>
+    </aside>
+
+    <main class="main-content admin-main">
+      <header class="admin-topbar"><h2>Cấu Hình Hệ Thống</h2></header>
+      <section class="admin-view">
+        <form id="settingForm">
+          <div>
+            <label>Tên Hệ Thống:</label>
+            <input type="text" id="siteName">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Lưu Cấu Hình</button>
+        </form>
+      </section>
+    
+      <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="../user/feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+</main>
+  </div>
+  <script src="../../../assets/js/menu-toggle.js"></script>
+  <script type="module" src="../../../assets/js/tabs-admin/settings.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+</html>

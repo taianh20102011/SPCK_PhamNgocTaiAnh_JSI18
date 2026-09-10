@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết bài học - BrainlyX</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/knowledge.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <style>
+    .lesson-page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 30px 20px
+    }
+
+    .lesson-card-detail {
+      background: #fff;
+      border-radius: 22px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .06)
+    }
+
+    .lesson-header {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+      margin-bottom: 24px
+    }
+
+    .lesson-badges {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .lesson-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin: 12px 0
+    }
+
+    .lesson-meta {
+      color: #6b7280;
+      display: flex;
+      gap: 18px
+    }
+
+    .lesson-content {
+      font-size: 1.08rem;
+      line-height: 1.85;
+      white-space: pre-line
+    }
+
+    .state-box {
+      text-align: center;
+      padding: 50px
+    }
+
+    .lesson-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px
+    }
+
+    .lesson-image {
+      max-width: 100%;
+      border-radius: 16px;
+      margin: 18px 0;
+      display: block
+    }
+
+    .badge-tag {
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-weight: 700
+    }
+
+    .badge-math {
+      background: #e0e7ff;
+      color: #4338ca
+    }
+
+    .badge-physics {
+      background: #fef3c7;
+      color: #b45309
+    }
+
+    .badge-english {
+      background: #d1fae5;
+      color: #047857
+    }
+
+    .badge-chemistry {
+      background: #fce7f3;
+      color: #be185d
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lesson-page">
+    <header class="app-page-header">
+      <div>
+        <h1>📚 Bài học</h1>
+        <p>Xem nội dung và ghim bài học để học lại sau.</p>
+      </div>
+      <div class="header-actions"><a class="btn" href="knowledge.html">← Kho kiến thức</a><a class="btn"
+          href="user.html">👤 Hồ sơ</a><button class="btn" data-action="logout">Đăng xuất</button></div>
+    </header>
+    <a href="knowledge.html" class="btn" style="margin-bottom:20px;">⬅ Quay lại kho kiến thức</a>
+    <main id="lesson-detail-container" class="lesson-card-detail">
+      <div id="loading-state" class="state-box">
+        <h2 id="lesson-title"><span class="brx-spinner"></span> Đang tải nội dung bài học...</h2>
+      </div>
+      <div id="lesson-body" style="display:none">
+        <div class="lesson-header">
+          <div class="lesson-badges"><span id="lesson-badge" class="badge-tag badge-math">Kiến thức</span><span
+              id="pinned-tag" style="display:none">📌 Đã ghim</span></div>
+          <h1 id="main-title" class="lesson-title"></h1>
+          <div class="lesson-meta"><span>⏱️ <span id="lesson-read-time"></span></span></div>
+        </div>
+        <img id="lesson-image" class="lesson-image" style="display:none" alt="Hình ảnh bài học">
+        <div id="lesson-content" class="lesson-content"></div>
+        <div class="lesson-actions"><button id="btn-pin-lesson" class="btn btn-primary">📍 Ghim bài học</button><a
+            id="btn-quiz" class="btn" href="quiz.html">🧠 Luyện tập môn này</a></div>
+      </div>
+    </main>
+    <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="knowledge.html">Kho
+          kiến thức</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+  </div>
+  <script type="module">
+    import { auth, db } from '../../../assets/js/firebase-config.js';
+    import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { doc, getDoc, setDoc, deleteDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+    const API = 'https://mock.apidog.com/m1/1359084-1362618-default/lessons';
+    const cls = { math: 'badge-math', physics: 'badge-physics', english: 'badge-english', chemistry: 'badge-chemistry' };
+    const p = new URLSearchParams(location.search), id = p.get('id'); let uid = null, lesson = null, pinned = false;
+    const $ = x => document.getElementById(x);
+    async function findLesson() {
+      const fs = await getDoc(doc(db, 'knowledge', String(id))).catch(() => null);
+      if (fs?.exists()) return { id: fs.id, ...fs.data() };
+      const r = await fetch(API); if (!r.ok) throw new Error('Không tải được kho dữ liệu');
+      const a = await r.json(); return a.find(x => String(x.id) === String(id));
+    }
+    async function syncPin() {
+      if (!uid || !lesson) return; const s = await getDoc(doc(db, 'users', uid, 'pinnedLessons', String(id))); pinned = s.exists();
+      $('btn-pin-lesson').textContent = pinned ? '📌 Bỏ ghim' : '📍 Ghim bài học'; $('pinned-tag').style.display = pinned ? 'inline' : 'none';
+    }
+    async function toggle() {
+      const ref = doc(db, 'users', uid, 'pinnedLessons', String(id));
+      try { if (pinned) await deleteDoc(ref); else await setDoc(ref, { lessonId: String(id), source: lesson.source || 'unknown', title: lesson.title || '', subject: lesson.subject || '', subjectLabel: lesson.subjectLabel || lesson.subject || '', imageUrl: lesson.imageUrl || lesson.image || '', pinnedAt: serverTimestamp() }); await syncPin(); }
+      catch (e) { alert('❌ Không thể cập nhật ghim: ' + e.message) }
+    }
+    async function init() {
+      if (!id) { $('lesson-title').textContent = '❌ Thiếu mã bài học'; return }
+      try {
+        lesson = await findLesson(); if (!lesson) throw new Error('Bài học không tồn tại');
+        $('main-title').textContent = lesson.title || 'Bài học'; $('lesson-read-time').textContent = lesson.readTime || '5 phút đọc';
+        const badge = $('lesson-badge'); badge.textContent = lesson.subjectLabel || lesson.subject || 'Kiến thức'; badge.className = 'badge-tag ' + (cls[lesson.subject] || 'badge-math');
+        $('lesson-content').innerHTML = lesson.content || lesson.description || 'Nội dung đang được cập nhật...';
+        const image = lesson.imageUrl || lesson.image || ''; if (image) { $('lesson-image').src = image; $('lesson-image').style.display = 'block' }
+        $('btn-quiz').href = `quiz.html?subject=${encodeURIComponent(lesson.subject || 'math')}`;
+        $('loading-state').style.display = 'none'; $('lesson-body').style.display = 'block'; document.title = (lesson.title || 'Bài học') + ' - BrainlyX'; await syncPin();
+      } catch (e) { console.error(e); $('lesson-title').textContent = '❌ ' + e.message }
+    }
+    onAuthStateChanged(auth, u => { uid = u?.uid || null; if (uid) syncPin(); }); $('btn-pin-lesson').addEventListener('click', toggle); init();
+  </script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+
+</html>

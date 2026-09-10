@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Kho Kiến Thức (Admin)</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/admin.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar admin-sidebar">
+      <div class="brand brand-admin" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"><span class="admin-badge"><span style="color: black;">ADMIN</span></span></div>
+      <ul class="nav-menu">
+        <li><a href="overview.html" class="nav-link">📊 Tổng quan</a></li>
+        <li><a href="users.html" class="nav-link">👥 Quản lý người dùng</a></li>
+        <li><a href="content.html" class="nav-link active">📚 Kho kiến thức</a></li>
+        <li><a href="logs.html" class="nav-link">📜 Nhật ký hệ thống</a></li>
+        <li><a href="settings.html" class="nav-link">⚙️ Cấu hình</a></li>
+      </ul>
+      <button class="btn" data-action="logout" style="margin-top:auto;color:var(--accent-danger);">↪ Đăng xuất</button>
+    </aside>
+
+    <main class="main-content admin-main">
+      <header class="admin-topbar"><h2>Kho Kiến Thức</h2></header>
+
+      <section class="admin-view">
+        <!-- FORM ĐĂNG BÀI KIẾN THỨC MỚI LÊN FIREBASE -->
+        <form id="addContentForm" style="margin-bottom: 20px; display:flex; flex-direction:column; gap:10px; max-width:500px;">
+          <input type="text" id="contentTitle" placeholder="Tiêu đề bài học/ghi chú" required>
+          
+          <!-- Lựa chọn Môn Học -->
+          <select id="contentSubject" required>
+            <option value="">-- Chọn môn học --</option>
+            <option value="math">Toán Học</option>
+            <option value="physics">Vật Lý</option>
+            <option value="english">Tiếng Anh</option>
+            <option value="chemistry">Hóa Học</option>
+          </select>
+
+          <!-- Ô nhập Thời Gian Đọc -->
+          <input type="text" id="contentReadTime" placeholder="Thời lượng đọc (VD: 5 phút đọc)">
+
+          <textarea id="contentDesc" placeholder="Nội dung ngắn gọn..." required style="height:80px;"></textarea>
+
+          <!-- CHỌN ẢNH TỪ MÁY -->
+          <label style="font-weight: bold; margin-top: 5px;">Tải ảnh từ thiết bị:</label>
+          <input type="file" id="contentImageFile" accept="image/*" style="padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+
+          <!-- HOẶC NHẬP URL ẢNH -->
+          <label style="font-weight: bold; margin-top: 5px;">Hoặc dán URL ảnh trực tiếp:</label>
+          <input type="url" id="contentImageUrl" placeholder="https://example.com/anh.jpg">
+          
+          <!-- KHUNG XEM TRƯỚC ẢNH MỚI CHỌN -->
+          <img id="contentImagePreview" src="" alt="Xem trước ảnh" style="display: none; max-width: 100%; max-height: 200px; object-fit: cover; border-radius: 6px; border: 1px solid #ddd; margin-top: 5px;">
+
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Lưu Bài Học Lên Firebase</button>
+        </form>
+
+        <hr>
+        <div id="contentList" style="margin-top:20px;">Đang tải danh sách...</div>
+        <div id="contentPagination" class="brx-pagination"></div>
+      </section>
+    
+      <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="../user/feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/menu-toggle.js"></script>
+  <script type="module" src="../../../assets/js/tabs-admin/content.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+</html>

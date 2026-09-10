@@ -1,0 +1,1413 @@
+/* ==========================================================================
+   BRAINLYX — RESPONSIVE UI v3 (FIXED)
+   Dùng làm file CSS cuối cùng (load sau basic.css, page CSS, app-shell.css)
+   Mục tiêu: Mobile / Tablet / Laptop / PC + Quiz / Note / Knowledge / Profile
+   ========================================================================== */
+
+:root {
+    --rx-sidebar: 250px;
+    --rx-page-max: 1440px;
+    --rx-gutter: clamp(14px, 2vw, 32px);
+    --rx-gap: clamp(12px, 1.7vw, 24px);
+    --rx-card-pad: clamp(14px, 1.7vw, 22px);
+    --rx-control-h: 42px;
+    --rx-shadow: 0 8px 28px rgba(15, 23, 42, .06);
+}
+
+
+/* ==========================================================================
+   1. BASE / SAFE SIZING
+   ========================================================================== */
+
+html {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+    min-width: 0;
+}
+
+.main-content,
+.admin-main {
+    min-width: 0;
+    width: auto;
+}
+
+.main-content>*,
+.admin-main>* {
+    min-width: 0;
+}
+
+
+/* Không để card/input đẩy layout ra ngoài màn hình */
+
+.glass-card,
+.subject-card,
+.quiz-container,
+.quiz-option,
+.note-editor,
+.notes-sidebar,
+.profile-card,
+.kb-header-section,
+.kb-sidebar-section,
+.kb-cards-grid,
+.document-card,
+.admin-card,
+.stat-item,
+.stat-card {
+    min-width: 0;
+}
+
+
+/* ==========================================================================
+   2. DESKTOP LARGE — PC >= 1200
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+    .main-content,
+    .admin-main {
+        padding: 32px clamp(24px, 2.5vw, 44px);
+    }
+    .app-page-header {
+        min-height: 78px;
+    }
+    .dashboard-grid {
+        gap: 24px;
+    }
+    .stats-cards {
+        gap: 16px;
+    }
+    .quiz-container {
+        padding: 28px;
+    }
+    .kb-main-layout {
+        gap: 24px;
+    }
+    .notes-layout {
+        gap: 24px;
+    }
+}
+
+
+/* ==========================================================================
+   3. LAPTOP — 1025 .. 1199
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1199px) {
+     :root {
+        --rx-sidebar: 220px;
+    }
+    .sidebar,
+    .admin-sidebar {
+        width: var(--rx-sidebar);
+        padding: 20px 12px;
+    }
+    .main-content,
+    .admin-main {
+        margin-left: var(--rx-sidebar);
+        padding: 22px 20px;
+    }
+    .brand {
+        font-size: 1.18rem;
+        margin: 8px;
+    }
+    .nav-link {
+        padding: 10px 12px;
+        gap: 9px;
+        font-size: .9rem;
+    }
+    .app-page-header {
+        padding: 15px 17px;
+        gap: 12px;
+    }
+    .app-page-header h1 {
+        font-size: 1.24rem;
+    }
+    .app-page-header p {
+        font-size: .78rem;
+    }
+    .header-actions {
+        gap: 7px;
+    }
+    .header-actions .btn,
+    .header-badge {
+        font-size: .76rem;
+    }
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+    .dashboard-grid .widget-full {
+        grid-column: 1 / -1;
+    }
+    .stats-cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .notes-layout {
+        grid-template-columns: minmax(220px, 270px) minmax(0, 1fr);
+        gap: 16px;
+    }
+    .quiz-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(230px, 280px);
+        gap: 16px;
+    }
+    .kb-main-layout {
+        grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+        gap: 16px;
+    }
+}
+
+
+/* ==========================================================================
+   4. TABLET LANDSCAPE / TABLET — 769 .. 1024
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+     :root {
+        --rx-sidebar: 210px;
+    }
+    .sidebar,
+    .admin-sidebar {
+        width: var(--rx-sidebar);
+    }
+    .main-content,
+    .admin-main {
+        margin-left: var(--rx-sidebar);
+        padding: 18px 16px;
+    }
+    .brand {
+        margin: 7px;
+        font-size: 1.12rem;
+    }
+    .nav-menu {
+        gap: 5px;
+    }
+    .nav-link {
+        padding: 9px 10px;
+        font-size: .84rem;
+        gap: 8px;
+    }
+    .user-profile-summary {
+        font-size: .82rem;
+    }
+    .app-page-header {
+        padding: 14px 15px;
+        margin-bottom: 16px;
+    }
+    .app-page-header h1 {
+        font-size: 1.12rem;
+    }
+    .app-page-header p {
+        font-size: .72rem;
+    }
+    .header-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+    .header-actions .btn,
+    .header-badge {
+        padding: 8px 10px;
+        font-size: .72rem;
+    }
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .widget-full {
+        grid-column: 1 / -1;
+    }
+    .stats-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .notes-layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 12px;
+    }
+    .quiz-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+    .quiz-container {
+        padding: 18px;
+    }
+    .kb-main-layout {
+        grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
+        gap: 12px;
+    }
+    .kb-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+
+/* ==========================================================================
+   5. GLOBAL HEADER / FOOTER
+   ========================================================================== */
+
+.app-page-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+.app-page-header>div:first-child {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.app-page-header h1 {
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+}
+
+.app-page-header p {
+    line-height: 1.45;
+}
+
+.header-actions {
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.header-actions .btn,
+.header-badge {
+    white-space: nowrap;
+}
+
+.app-footer {
+    width: 100%;
+    min-width: 0;
+}
+
+.app-footer span,
+.app-footer a {
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================================================
+   6. BUTTONS / INPUTS — TOUCH FRIENDLY
+   ========================================================================== */
+
+.btn {
+    min-height: var(--rx-control-h);
+    line-height: 1.15;
+    justify-content: center;
+}
+
+.input-field,
+select.input-field,
+textarea.input-field {
+    min-height: var(--rx-control-h);
+}
+
+textarea.input-field {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ==========================================================================
+   7. DASHBOARD
+   ========================================================================== */
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.stat-item {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.stat-value {
+    font-size: clamp(1.1rem, 2vw, 1.8rem);
+    line-height: 1.1;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.dashboard-grid>* {
+    min-width: 0;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.ai-quick-box {
+    min-width: 0;
+}
+
+.ai-response-area {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.pomo-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.pomo-controls .btn {
+    flex: 1 1 110px;
+}
+
+
+/* ==========================================================================
+   8. QUIZ
+   ========================================================================== */
+
+.quiz-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 24px;
+    width: 100%;
+}
+
+.quiz-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.quiz-header-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.quiz-question-title,
+#quiz-question-text {
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.quiz-options-grid,
+#quiz-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.quiz-option {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.result-actions .btn {
+    min-width: 130px;
+}
+
+
+/* ==========================================================================
+   9. NOTES
+   ========================================================================== */
+
+.notes-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.notes-sidebar,
+.note-editor {
+    min-width: 0;
+}
+
+.notes-list {
+    min-width: 0;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.note-image-tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.note-image-name {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.note-image-preview {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+
+/* ==========================================================================
+   10. KNOWLEDGE / KHO KIẾN THỨC (ĐÃ SỬA BỐ CỤC)
+   ========================================================================== */
+
+
+/* Khung chứa tổng thể (Chia cột trái - phải) */
+
+.kb-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    /* Cột thẻ rộng, cột "Bài học đã ghim" 300px bên phải */
+    gap: 24px;
+    width: 100%;
+}
+
+.kb-sidebar-section,
+.kb-header-section {
+    min-width: 0;
+}
+
+.kb-search-bar {
+    width: 100%;
+    min-width: 0;
+}
+
+
+/* Lưới hiển thị các thẻ bài học */
+
+.kb-cards-grid {
+    display: grid;
+    /* Hiển thị tự động 2-3 cột tùy kích thước màn hình */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+}
+
+.kb-cards-grid>* {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.document-card,
+.kb-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.kb-filter-chips,
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+.chip-btn {
+    white-space: nowrap;
+}
+
+.pinned-list {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================================================
+   11. PROFILE
+   ========================================================================== */
+
+.profile-container,
+.profile-card,
+.profile-body,
+.profile-header {
+    min-width: 0;
+}
+
+.profile-card {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-group-profile {
+    min-width: 0;
+}
+
+.avatar-wrapper {
+    flex: 0 0 auto;
+}
+
+
+/* ==========================================================================
+   12. ADMIN
+   ========================================================================== */
+
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.admin-table-container {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-table-container table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+}
+
+.table-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.table-search-group {
+    display: flex;
+    flex: 1 1 280px;
+    min-width: 0;
+    gap: 8px;
+}
+
+.table-search-group .input-field {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+
+/* ==========================================================================
+   13. AUTH
+   ========================================================================== */
+
+.auth-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.auth-card {
+    width: min(100%, 440px);
+}
+
+
+/* ==========================================================================
+   14. MENU TOGGLE
+   ========================================================================== */
+
+.menu-toggle-btn {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    border: 1px solid var(--border-glass, #e2e8f0);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, .10);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 1200;
+    cursor: pointer;
+    transition: box-shadow .2s ease, transform .15s ease;
+}
+
+.menu-toggle-btn:hover {
+    box-shadow: 0 10px 24px rgba(15, 23, 42, .16);
+}
+
+.menu-toggle-btn:active {
+    transform: scale(.94);
+}
+
+.menu-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent-primary, #4f46e5);
+    outline-offset: 2px;
+}
+
+.menu-toggle-btn .bar {
+    width: 20px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--text-main, #0f172a);
+    transition: transform .25s ease, opacity .2s ease;
+}
+
+
+/* Hiệu ứng biến hamburger (☰) thành dấu X khi menu đang mở */
+
+.menu-toggle-btn.is-active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle-btn.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle-btn.is-active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ==========================================================================
+   15. MOBILE <= 768
+   ========================================================================== */
+
+@media (max-width: 768px) {
+     :root {
+        --rx-sidebar: 280px;
+    }
+    body {
+        background: var(--bg-primary, #f8fafc);
+    }
+    .sidebar,
+    .admin-sidebar {
+        position: fixed !important;
+        inset: 0 auto 0 0;
+        width: min(var(--rx-sidebar), 86vw) !important;
+        height: 100dvh !important;
+        margin: 0 !important;
+        padding: 18px 14px !important;
+        transform: translateX(-105%);
+        transition: transform .28s ease;
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 1100 !important;
+        box-shadow: 10px 0 32px rgba(15, 23, 42, .15);
+    }
+    .sidebar.is-open,
+    .admin-sidebar.is-open {
+        left: 0 !important;
+        transform: translateX(0);
+    }
+    .menu-toggle-btn {
+        display: flex !important;
+    }
+    /* QUAN TRỌNG: mặc định phải vô hình VÀ không chặn thao tác (pointer-events: none),
+     nếu không lớp phủ này sẽ che toàn bộ màn hình mobile ngay cả khi sidebar đang đóng. */
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1090;
+        background: rgba(15, 23, 42, .45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .28s ease;
+    }
+    .sidebar-overlay.is-active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .sidebar .brand {
+        margin: 6px 8px 12px;
+        justify-content: flex-start;
+        font-size: 1.2rem;
+    }
+    .nav-menu {
+        width: 100%;
+        gap: 5px;
+    }
+    .nav-link {
+        width: 100%;
+        min-height: 42px;
+        padding: 10px 12px;
+        font-size: .88rem;
+    }
+    .user-profile-summary {
+        margin-top: auto;
+        width: 100%;
+    }
+    .main-content,
+    .admin-main {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin-left: 0 !important;
+        padding: 64px clamp(12px, 4vw, 20px) 20px !important;
+    }
+    .app-page-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 14px;
+        padding: 14px;
+    }
+    .app-page-header h1 {
+        font-size: 1.15rem;
+    }
+    .app-page-header p {
+        font-size: .76rem;
+    }
+    .header-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        gap: 8px;
+    }
+    .header-actions .header-badge {
+        grid-column: 1 / -1;
+        width: max-content;
+        max-width: 100%;
+    }
+    .header-actions .btn {
+        width: 100%;
+        min-width: 0;
+        padding: 9px 8px;
+        font-size: .74rem;
+    }
+    .app-footer {
+        margin-top: 26px;
+        padding-top: 16px;
+        font-size: .72rem;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+    /* Dashboard */
+    .stats-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+    }
+    .stat-item,
+    .stats-cards>* {
+        padding: 14px !important;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .dashboard-grid>*,
+    .dashboard-grid .widget-full {
+        grid-column: auto !important;
+        width: 100%;
+    }
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+    .ai-quick-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pomo-controls {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .pomo-controls .btn {
+        width: 100%;
+        min-width: 0;
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: .78rem;
+    }
+    /* Quiz */
+    .quiz-layout {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .quiz-container {
+        padding: 14px;
+    }
+    .quiz-header-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+    .quiz-stat-value {
+        font-size: 1.18rem;
+    }
+    .quiz-option {
+        min-height: 48px;
+        padding: 11px 12px;
+        font-size: .86rem;
+    }
+    .result-actions {
+        flex-direction: column;
+    }
+    .result-actions .btn {
+        width: 100%;
+    }
+    /* Note */
+    .notes-layout {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .notes-sidebar,
+    .note-editor {
+        width: 100%;
+    }
+    .notes-list {
+        max-height: 250px;
+    }
+    /* Knowledge */
+    .kb-main-layout {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .kb-search-bar {
+        width: 100%;
+    }
+    .kb-filter-chips,
+    .filter-chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    .kb-filter-chips::-webkit-scrollbar,
+    .filter-chips::-webkit-scrollbar {
+        display: none;
+    }
+    .chip-btn {
+        flex: 0 0 auto;
+    }
+    .kb-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    /* Profile */
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px;
+    }
+    .profile-actions {
+        flex-wrap: wrap;
+    }
+    .profile-actions .btn {
+        flex: 1 1 140px;
+    }
+    /* Admin */
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+    }
+    .table-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .table-search-group {
+        width: 100%;
+        flex-direction: column;
+    }
+    /* Footer landing */
+    .footer-container {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+        padding: 0 16px 28px !important;
+    }
+    .footer-bottom-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    /* Auth */
+    .auth-wrapper {
+        padding: 16px 12px;
+    }
+    .auth-card {
+        width: 100%;
+        padding: 22px 16px;
+    }
+    .auth-card .btn {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================================
+   16. SMALL MOBILE <= 480
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    .main-content,
+    .admin-main {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .app-page-header {
+        padding: 12px;
+        border-radius: 14px;
+    }
+    .header-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+    .header-actions .btn,
+    .header-actions .header-badge {
+        font-size: .7rem;
+    }
+    .stats-cards {
+        grid-template-columns: 1fr !important;
+    }
+    .stat-item,
+    .stats-cards>* {
+        padding: 12px !important;
+    }
+    .quiz-header-stats {
+        grid-template-columns: 1fr !important;
+    }
+    .quiz-container {
+        padding: 12px;
+        border-radius: 14px;
+    }
+    .quiz-option {
+        font-size: .82rem;
+        padding: 10px;
+    }
+    .pomo-controls {
+        grid-template-columns: 1fr;
+    }
+    .admin-stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .notes-list {
+        max-height: 220px;
+    }
+    .btn {
+        min-height: 40px;
+    }
+    .app-footer {
+        font-size: .68rem;
+    }
+}
+
+
+/* ==========================================================================
+   17. VERY SMALL DEVICES <= 360
+   ========================================================================== */
+
+@media (max-width: 360px) {
+    .main-content,
+    .admin-main {
+        padding-top: 60px !important;
+    }
+    .app-page-header h1 {
+        font-size: 1.02rem;
+    }
+    .header-actions {
+        grid-template-columns: 1fr;
+    }
+    .header-actions .header-badge {
+        width: 100%;
+        justify-content: center;
+    }
+    .nav-link {
+        font-size: .82rem;
+    }
+    .quiz-option {
+        font-size: .78rem;
+    }
+}
+
+
+/* ==========================================================================
+   18. ACCESSIBILITY / REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* ==========================================================================
+   19. LANDSCAPE PHONE
+   ========================================================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .sidebar,
+    .admin-sidebar {
+        width: min(300px, 72vw) !important;
+    }
+    .main-content,
+    .admin-main {
+        padding-top: 58px !important;
+    }
+    .notes-list {
+        max-height: 180px;
+    }
+    .app-page-header {
+        flex-direction: row;
+        align-items: center;
+    }
+    .header-actions {
+        width: auto;
+        display: flex;
+    }
+    .header-actions .header-badge {
+        width: auto;
+    }
+}
+
+
+/* ==========================================================================
+   20. FOCUS STATES (Bàn phím / Edit - Add item)
+   ========================================================================== */
+
+
+/* Focus-visible mặc định cho MỌI phần tử tương tác chưa có style riêng
+   (áp dụng khi điều hướng bằng bàn phím, không ảnh hưởng click chuột) */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--accent-primary, #4f46e5);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+
+/* Các ô input/select/textarea "trần" trong màn hình Thêm/Sửa (Admin: thêm user,
+   thêm bài học, cấu hình...) chưa gắn class .input-field -> đồng bộ style +
+   focus ring giống phần còn lại của hệ thống */
+
+#addUserForm input,
+#addUserForm select,
+#addContentForm input:not([type="file"]),
+#addContentForm select,
+#addContentForm textarea,
+#settingForm input {
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid var(--border-glass, #e2e8f0);
+    border-radius: var(--radius-md, 10px);
+    color: var(--text-main, #0f172a);
+    outline: none;
+    transition: var(--transition, all .3s ease);
+}
+
+#addUserForm input:focus,
+#addUserForm select:focus,
+#addContentForm input:not([type="file"]):focus,
+#addContentForm select:focus,
+#addContentForm textarea:focus,
+#settingForm input:focus {
+    border-color: var(--accent-primary, #4f46e5);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .15);
+}
+
+
+/* Ô soạn thảo ghi chú: đồng bộ focus ring (trước đây chỉ đổi màu viền) */
+
+.note-editor textarea:focus {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .15);
+}
+
+
+/* Item danh sách có thể chọn/sửa (ghi chú, thẻ bài học...) cần focus rõ ràng
+   khi điều hướng bằng bàn phím (Tab) */
+
+.note-item:focus-visible,
+.kb-card:focus-visible,
+.chip-btn:focus-visible {
+    outline: 2px solid var(--accent-primary, #4f46e5);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================================
+   21. SPINNER / LOADER (khi gọi API hoặc xử lý chờ đợi)
+   ========================================================================== */
+
+@keyframes brx-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.brx-spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(79, 70, 229, .2);
+    border-top-color: var(--accent-primary, #4f46e5);
+    border-radius: 50%;
+    animation: brx-spin .7s linear infinite;
+    vertical-align: middle;
+}
+
+.brx-spinner.brx-spinner-sm {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+.brx-spinner.brx-spinner-lg {
+    width: 34px;
+    height: 34px;
+    border-width: 3.5px;
+}
+
+.brx-spinner.brx-spinner-light {
+    border-color: rgba(255, 255, 255, .35);
+    border-top-color: #ffffff;
+}
+
+
+/* Khối chờ dùng để thay thế nội dung 1 danh sách/khung trong lúc tải dữ liệu */
+
+.brx-loading-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 36px 16px;
+    color: var(--text-muted, #64748b);
+    font-size: .9rem;
+    grid-column: 1 / -1;
+}
+
+
+/* Trạng thái nút khi đang xử lý bất đồng bộ (lưu / xoá / tải lên...) */
+
+.btn.is-loading,
+button.is-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: none;
+    opacity: .85;
+}
+
+
+/* Overlay mờ phủ lên 1 khối đang xử lý (VD: ảnh đại diện đang tải lên) */
+
+.brx-loading-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .65);
+    border-radius: inherit;
+    z-index: 5;
+}
+
+
+/* ==========================================================================
+   22. PHÂN TRANG (PAGINATION)
+   ========================================================================== */
+
+.brx-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-glass, #e2e8f0);
+    grid-column: 1 / -1;
+}
+
+.brx-pagination-info {
+    color: var(--text-muted, #64748b);
+    font-size: .82rem;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.brx-page-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-glass, #e2e8f0);
+    background: #fff;
+    color: var(--text-main, #0f172a);
+    border-radius: var(--radius-md, 10px);
+    font-weight: 600;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: var(--transition, all .2s ease);
+}
+
+.brx-page-btn:hover:not(:disabled) {
+    border-color: var(--accent-primary, #4f46e5);
+    color: var(--accent-primary, #4f46e5);
+}
+
+.brx-page-btn.active {
+    background: var(--accent-primary, #4f46e5);
+    border-color: var(--accent-primary, #4f46e5);
+    color: #fff;
+}
+
+.brx-page-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .brx-pagination {
+        justify-content: space-between;
+    }
+    .brx-pagination-info {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        order: -1;
+    }
+}
+
+
+/* ===== Final responsive corrections ===== */
+
+.brand img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (min-width:769px) and (max-width:1199px) {
+    .brand img {
+        width: 160px;
+    }
+    .kb-main-layout {
+        grid-template-columns: minmax(0, 1fr) 250px;
+        gap: 16px;
+    }
+    .kb-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+    .kb-main-layout {
+        grid-template-columns: minmax(0, 1fr) 235px;
+    }
+}
+
+@media (max-width:768px) {
+    .brand img {
+        width: 150px;
+    }
+    .sidebar .brand img {
+        width: 150px;
+    }
+    .app-page-header {
+        z-index: 90;
+    }
+}
+
+@media (max-width:380px) {
+    .brand img,
+    .sidebar .brand img {
+        width: 138px;
+    }
+}
+
+html {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    /* Đổi từ hidden sang clip */
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    /* Đổi từ hidden sang clip */
+    -webkit-text-size-adjust: 100%;
+}

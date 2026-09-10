@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Cá Nhân - Profile</title>
+    <link rel="stylesheet" href="../../../assets/css/basic.css">
+    <link rel="stylesheet" href="../../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../../assets/css/profile.css">
+    <link rel="stylesheet" href="../../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"></div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+                <li><a href="comming.html" class="nav-link">📅 Thời khóa biểu</a></li>
+                <li><a href="note.html" class="nav-link">📝 Sổ tay</a></li>
+                <li><a href="quiz.html" class="nav-link">🧠 Luyện tập</a></li>
+                <li><a href="knowledge.html" class="nav-link">📚 Kho kiến thức</a></li>
+            </ul>
+
+            <!-- User Profile Widget Container -->
+            <div class="user-profile-summary">
+                <div style="display: flex; justify-content: space-between;">
+                    <span id="sidebar-display-name" style="font-weight: 700;">Đang tải...</span>
+                    <span id="sidebar-user-level"
+                        style="color: var(--accent-warning, #f59e0b); font-weight: 700;">Lv.1</span>
+                </div>
+                <div class="exp-bar-container">
+                    <div id="sidebar-user-exp-bar" class="exp-bar-fill"></div>
+                </div>
+                <!-- <a href="user.html" class="btn" id="btn-sidebar-profile">👤 Profile</a>
+                <button id="btn-logout" class="btn" style="color: var(--accent-danger, #ef4444); margin-top: 12px; padding: 0;">Đăng xuất</button> -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="app-page-header">
+                <div>
+                    <h1>Hồ sơ cá nhân</h1>
+                    <p>Cập nhật thông tin, ảnh đại diện và tài khoản.</p>
+                </div>
+                <div class="header-actions"><span class="header-badge">🚀 BrainlyX</span><a class="btn"
+                        href="user.html">👤 Hồ sơ</a><button class="btn" data-action="logout">Đăng xuất</button></div>
+            </header>
+
+            <div class="profile-container">
+                <div class="profile-card">
+                    <!-- Header Profile -->
+                    <div class="profile-header">
+                        <div class="avatar-wrapper">
+                            <img id="profile-avatar-img"
+                                src="https://ui-avatars.com/api/?name=User&background=4f46e5&color=fff&size=128"
+                                alt="Avatar" class="avatar-img">
+                            <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                            <button type="button" id="btn-change-avatar" class="btn-change-avatar"
+                                title="Đổi ảnh đại diện">📷</button>
+                        </div>
+                        <div class="user-title">
+                            <h2 id="profile-display-name">Đang tải...</h2>
+                            <p id="profile-class-text">Học sinh ...</p>
+                            <span id="profile-role-badge" class="badge-role">Học Viên</span>
+                        </div>
+                    </div>
+
+                    <!-- Form thông tin cá nhân -->
+                    <div class="profile-body">
+                        <h3>Thông Tin Cá Nhân</h3>
+                        <form id="profile-form">
+                            <div class="form-grid">
+                                <div class="form-group-profile">
+                                    <label for="fullname">Họ và tên</label>
+                                    <input type="text" id="fullname" name="fullname" required
+                                        placeholder="Nhập họ và tên">
+                                </div>
+                                <div class="form-group-profile">
+                                    <label for="email">Địa chỉ Email</label>
+                                    <input type="email" id="email" name="email" disabled
+                                        style="background-color: #f3f4f6; cursor: not-allowed;">
+                                </div>
+
+                                <!-- MỞ LẠI Ô CHỌN KHỐI LỚP -->
+                                <div class="form-group-profile">
+                                    <label for="grade-select">Khối lớp</label>
+                                    <select id="grade-select" name="grade">
+                                        <option value="6">Khối 6</option>
+                                        <option value="7">Khối 7</option>
+                                        <option value="8">Khối 8</option>
+                                        <option value="9">Khối 9</option>
+                                        <option value="10">Khối 10</option>
+                                        <option value="11">Khối 11</option>
+                                        <option value="12">Khối 12</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group-profile">
+                                    <label for="phone">Số điện thoại</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                                </div>
+                                <div class="form-group-profile">
+                                    <label for="gender">Giới tính</label>
+                                    <select id="gender" name="gender">
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                        <option value="Khác">Khác</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="profile-actions">
+                                <button type="button" id="btn-cancel-profile" class="btn-cancel">Hủy</button>
+                                <button type="submit" id="btn-save-profile" class="btn-save-profile">Lưu Thay
+                                    Đổi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a
+                        href="feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+        </main>
+    </div>
+    <script src="../../../assets/js/menu-toggle.js"></script>
+    <script type="module" src="../../../assets/js/tabs-user/profile.js"></script>
+    <script type="module" src="../../../assets/js/app-shell.js"></script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...args) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "e4qdiWBuEAj-3NVi9OOtC"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+</body>
+
+</html>

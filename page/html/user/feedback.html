@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainlyX - Gửi Góp Ý & Đánh Giá</title>
+
+    <link rel="stylesheet" href="../../../assets/css/feedback.css">
+    <link rel="stylesheet" href="../../../assets/css/basic.css">
+    <link rel="stylesheet" href="../../../assets/css/responsive.css">
+    <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+
+<body>
+
+    <div id="feedbackContainer" class="feedback-wrapper">
+        <header class="app-page-header">
+            <div>
+                <h1>Góp ý & đánh giá</h1>
+                <p>Chia sẻ trải nghiệm, lỗi hoặc đề xuất tính năng cho BrainlyX.</p>
+            </div>
+            <div class="header-actions"><span class="header-badge">🚀 BrainlyX User</span><a class="btn"
+                    href="dashboard.html">📊 Dashboard</a><button class="btn" data-action="logout">Đăng xuất</button>
+            </div>
+        </header>
+
+        <!-- Header & Nút Quay Về -->
+        <header class="feedback-header">
+            <a href="../../../index.html" id="btnBackToHome" class="back-link">← Quay lại trang chủ</a>
+            <h2>💬 Gửi Góp Ý Cho BrainlyX</h2>
+            <p>Ý kiến của bạn sẽ giúp hệ thống nâng cao trải nghiệm học tập tốt hơn.</p>
+        </header>
+
+        <!-- Khung Form Góp Ý -->
+        <div class="feedback-card">
+
+            <!-- Thông báo trạng thái gửi (Ẩn mặc định) -->
+            <div id="feedbackAlert" class="alert-box hidden"></div>
+
+            <form id="feedbackForm" onsubmit="return false;">
+
+                <!-- 1. Chọn mức độ hài lòng (Rating) -->
+                <div class="form-group">
+                    <label>Mức độ hài lòng của bạn:</label>
+                    <div id="ratingStarGroup" class="star-rating">
+                        <button type="button" class="star-btn" data-value="1">★</button>
+                        <button type="button" class="star-btn" data-value="2">★</button>
+                        <button type="button" class="star-btn" data-value="3">★</button>
+                        <button type="button" class="star-btn" data-value="4">★</button>
+                        <button type="button" class="star-btn" data-value="5">★</button>
+                    </div>
+                    <!-- Input ẩn để lưu số sao đã chọn -->
+                    <input type="hidden" id="feedbackRatingInput" value="0">
+                </div>
+
+                <!-- 2. Chọn chủ đề góp ý -->
+                <div class="form-group">
+                    <label for="feedbackCategory">Chủ đề góp ý:</label>
+                    <select id="feedbackCategory" class="input-field" required>
+                        <option value="">-- Chọn chủ đề --</option>
+                        <option value="bug">🐛 Báo lỗi hệ thống / Giao diện</option>
+                        <option value="feature">💡 Đề xuất tính năng mới</option>
+                        <option value="content">📚 Nội dung bài học / AI</option>
+                        <option value="other">❓ Ý kiến khác</option>
+                    </select>
+                </div>
+
+                <!-- 3. Nội dung góp ý -->
+                <div class="form-group">
+                    <label for="feedbackMessage">Nội dung chi tiết:</label>
+                    <textarea id="feedbackMessage" class="input-field textarea-field" rows="5"
+                        placeholder="Chia sẻ trải nghiệm hoặc vấn đề bạn gặp phải..." required></textarea>
+                </div>
+
+                <!-- 4. Email liên hệ (Không bắt buộc) -->
+                <div class="form-group">
+                    <label for="feedbackEmail">Email của bạn (không bắt buộc để nhận phản hồi):</label>
+                    <input type="email" id="feedbackEmail" class="input-field" placeholder="your-email@example.com">
+                </div>
+                <!-- 5. Tải ảnh chụp màn hình (Không bắt buộc) -->
+                <div class="form-group">
+                    <label>Ảnh chụp màn hình (nếu có lỗi):</label>
+
+                    <!-- Nút bấm chọn file tùy chỉnh -->
+                    <div id="feedbackUploadArea" class="upload-area">
+                        <input type="file" id="feedbackScreenshotInput" accept="image/png, image/jpeg, image/webp"
+                            class="hidden">
+                        <button type="button" id="feedbackUploadBtn" class="btn">📷 Chọn ảnh chụp màn hình</button>
+                        <span id="feedbackFileName" class="file-name-text">Chưa chọn ảnh nào (Tối đa 5MB)</span>
+                    </div>
+
+                    <!-- Khung xem trước ảnh đã chọn -->
+                    <div id="feedbackPreviewContainer" class="preview-container hidden">
+                        <img id="feedbackPreviewImg" src="" alt="Ảnh xem trước">
+                        <button type="button" id="feedbackRemoveImgBtn" class="btn-remove-img">✕ Xóa ảnh</button>
+                    </div>
+                </div>
+                <!-- Nút Gửi -->
+                <button type="submit" id="feedbackSubmitBtn" class="btn btn-primary submit-btn">
+                    🚀 Gửi Phản Hồi
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+    <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a
+                href="../../../index.html">Trang chủ</a></span></footer>
+
+    <script src="../../../assets/js/menu-toggle.js"></script>
+    <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+
+</html>

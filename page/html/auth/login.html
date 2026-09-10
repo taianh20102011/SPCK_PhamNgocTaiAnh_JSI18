@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Đăng nhập</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/auth.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="glass-card auth-card">
+      <!-- Nút Quay về trang chủ -->
+      <a href="../../../index.html" class="back-home">← Quay về trang chủ</a>
+
+      <div class="auth-header">
+        <h1 class="brand auth-brand" style="justify-content: center; margin-bottom: 8px;"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"></h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Đăng nhập để tiếp tục lộ trình học tập</p>
+      </div>
+
+      <form id="login-form" class="auth-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="login-email">Email học sinh</label>
+          <input type="email" id="login-email" class="input-field" required placeholder="hocsinh@brainlyx.edu.vn">
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Mật khẩu</label>
+          <input type="password" id="login-password" class="input-field" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" id="btn-login" class="btn btn-primary" style="width: 100%; justify-content: center;">Đăng Nhập</button>
+      </form>
+
+      <div class="auth-divider">HOẶC</div>
+
+      <button id="btn-google-login" class="btn btn-google">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="Google">
+        Đăng nhập bằng Google
+      </button>
+
+      <p style="text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+        Chưa có tài khoản? <a href="register.html" style="color: var(--accent-primary);">Đăng ký ngay</a>
+      </p>
+    </div>
+  </div>
+  <script type="module" src="../../../assets/js/auth-login.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+</html>

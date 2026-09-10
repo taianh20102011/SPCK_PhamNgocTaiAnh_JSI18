@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Dashboard</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Sidebar -->
+    <aside class="sidebar">
+      <div class="brand" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"></div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link active">📊 Dashboard</a></li>
+        <li><a href="comming.html" class="nav-link">📅 Thời khóa biểu</a></li>
+        <li><a href="note.html" class="nav-link">📝 Sổ tay</a></li>
+        <li><a href="quiz.html" class="nav-link">🧠 Luyện tập</a></li>
+        <li><a href="knowledge.html" class="nav-link">📚 Kho kiến thức</a></li>
+      </ul>
+      
+      <!-- User Profile Widget Container -->
+      <div class="user-profile-summary">
+        <div style="display: flex; justify-content: space-between;">
+          <span id="user-display-name" style="font-weight: 700;">Đang tải...</span>
+          <span id="user-level" style="color: var(--accent-warning); font-weight: 700;">Lv.1</span>
+        </div>
+        <div class="exp-bar-container">
+          <div id="user-exp-bar" class="exp-bar-fill"></div>
+        </div>
+        <!-- <a style="text-decoration: none;" href="user.html"><button class="btn">👤 Profile</button></a>
+        <button id="btn-logout" class="btn" style="color: var(--accent-danger); margin-top: 12px; padding: 0;">Đăng xuất</button>
+      </div> -->
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="app-page-header">
+        <div><h1>Dashboard</h1><p>Tổng quan học tập, tiến độ, môn học và mục tiêu hôm nay.</p></div>
+        <div class="header-actions"><span class="header-badge">🚀 BrainlyX</span><a class="btn" href="user.html">👤 Hồ sơ</a><button class="btn" data-action="logout">Đăng xuất</button></div>
+      </header>
+
+      <!-- Thống kê nhanh -->
+      <div class="stats-cards">
+        <div class="glass-card stat-item">
+          <span>Thời gian học hôm nay</span>
+          <span id="stat-study-time" class="stat-value">0 phút</span>
+        </div>
+        <div class="glass-card stat-item">
+          <span>Bài tập hoàn thành</span>
+          <span id="stat-completed-tasks" class="stat-value">0/0</span>
+        </div>
+        <div class="glass-card stat-item">
+          <span>Tổng EXP</span>
+          <span id="stat-total-exp" class="stat-value">0</span>
+        </div>
+        <div class="glass-card stat-item">
+          <span>Điểm trung bình</span>
+          <span id="stat-gpa" class="stat-value">0.0</span>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Widget Pomodoro -->
+        <div class="glass-card">
+          <h3>⏱ Pomodoro Timer</h3>
+          <div id="pomo-timer" class="pomo-timer-display">25:00</div>
+          <div class="pomo-controls">
+            <button id="btn-pomo-start" class="btn btn-primary">Bắt đầu</button>
+            <button id="btn-pomo-pause" class="btn">Tạm dừng</button>
+            <button id="btn-pomo-reset" class="btn">Reset</button>
+          </div>
+        </div>
+
+        <!-- AI Assistant Mini Widget
+        <div class="glass-card widget-large">
+          <h3>🤖 AI Homework Assistant (Gemini)</h3>
+          <div class="ai-quick-box">
+            <input type="text" id="ai-quick-input" class="input-field" placeholder="Hỏi nhanh bài tập Toán, Lý, Hóa...">
+            <button id="btn-ai-quick-send" class="btn btn-primary">Hỏi AI</button>
+          </div>
+          <div id="ai-quick-response" class="ai-response-area">Sẵn sàng hỗ trợ bạn giải bài tập...</div>
+        </div> -->
+
+        <!-- Quản lý môn học (Khung trống chờ JS Render) -->
+        <div class="glass-card widget-large">
+          <h3>📚 Môn học của tôi</h3>
+          <div id="subjects-container" class="subjects-grid">
+            <!-- JS Render môn học vào đây -->
+          </div>
+        </div>
+
+        <!-- Lịch học & Deadline (Khung trống) -->
+        <div class="glass-card">
+          <h3>📅 Nhắc nhở Deadline</h3>
+          <ul id="upcoming-deadlines" style="list-style: none; margin-top: 12px;">
+            <!-- JS Render deadline vào đây -->
+          </ul>
+        </div>
+      </div>
+    
+      <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+</main>
+  </div>
+  <script src="../../../assets/js/menu-toggle.js"></script>
+  <script type="module" src="../../../assets/js/dashboard.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+    <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...args) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "e4qdiWBuEAj-3NVi9OOtC"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+</body>
+</html>

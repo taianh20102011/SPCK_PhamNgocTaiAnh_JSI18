@@ -1,0 +1,125 @@
+/* =========================================================
+   NOTE / SỔ TAY STYLES (MATCHING DASHBOARD UI)
+   ========================================================= */
+
+/* Layout tổng quan đồng bộ gap 24px với Dashboard Grid */
+.notes-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px; /* Đồng bộ gap với .dashboard-grid[cite: 1, 2] */
+  min-height: calc(100vh - 120px);
+}
+
+/* Sidebar Danh sách ghi chú */
+.notes-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--bg-card, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg, 16px);
+  backdrop-filter: blur(12px);
+}
+
+.notes-search-box {
+  width: 100%;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Thống nhất khoảng cách các thẻ danh sách[cite: 2] */
+  overflow-y: auto;
+  max-height: calc(100vh - 240px);
+  padding-right: 4px;
+}
+
+/* Thẻ ghi chú con trong danh sách */
+.note-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.05); /* Chuẩn nền item giống quiz option */
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md); /*[cite: 3] */
+  color: var(--text-main); /*[cite: 3] */
+  cursor: pointer;
+  transition: var(--transition); /*[cite: 3] */
+}
+
+.note-item:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.note-item.active {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: var(--accent-primary);
+}
+
+.note-item-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-snippet {
+  font-size: 0.8rem;
+  color: var(--text-muted, #94a3b8);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Khung Soạn thảo Ghi chú */
+.note-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /*[cite: 2] */
+  padding: 24px;
+  background: var(--bg-card, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg, 16px);
+  backdrop-filter: blur(12px);
+}
+
+.note-editor-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Khung nhập văn bản chính đồng bộ với ai-response-area */
+.note-editor textarea {
+  resize: none; /*[cite: 2] */
+  flex: 1; /*[cite: 2] */
+  min-height: 380px;
+  padding: 16px;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  outline: none;
+  transition: var(--transition);
+}
+
+.note-editor textarea:focus {
+  border-color: var(--accent-primary);
+}
+
+.note-editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-glass);
+}

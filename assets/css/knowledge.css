@@ -1,0 +1,678 @@
+/* =========================================================
+   BRAINLYX - KHO KIẾN THỨC (KNOWLEDGE BASE STYLES)
+   ========================================================= */
+
+
+/* 1. KHUNG TÌM KIẾM & BỘ LỌC */
+
+.kb-header-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.kb-search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.kb-search-bar input {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 20px 14px 48px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: 15px;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-soft);
+    outline: none;
+    transition: var(--transition);
+}
+
+.kb-search-bar input:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.kb-search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+
+/* Danh Sách Thẻ Báo Lọc (Filter Chips) */
+
+.kb-filter-chips,
+.filter-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chip-btn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.chip-btn:hover,
+.chip-btn.active {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+
+/* 2. HERO SECTION & TOOLBAR */
+
+.knowledge-page-header {
+    margin-bottom: 18px;
+}
+
+.knowledge-page-header h1 {
+    margin-top: 6px;
+}
+
+.kb-hero-section {
+    margin-bottom: 24px;
+    padding: 26px;
+    border-radius: 22px;
+    border: 1px solid #dfe4f3;
+    background: linear-gradient(135deg, #eef2ff 0%, #ffffff 52%, #f5f3ff 100%);
+    box-shadow: 0 14px 34px rgba(79, 70, 229, .08);
+}
+
+.kb-hero-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, .85fr);
+    gap: 24px;
+    align-items: end;
+}
+
+.kb-hero-kicker {
+    display: inline-flex;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: #e7e8ff;
+    color: var(--accent-primary);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+}
+
+.kb-hero-copy h2 {
+    margin-top: 12px;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    line-height: 1.18;
+}
+
+.kb-hero-copy p {
+    margin-top: 8px;
+    max-width: 680px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: .92rem;
+}
+
+.kb-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(148, 163, 184, .25);
+}
+
+.toolbar-label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: .73rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.kb-shortcut {
+    color: var(--text-muted);
+    font-size: .76rem;
+    white-space: nowrap;
+    padding-bottom: 7px;
+}
+
+
+/* 3. BỐ CỤC LƯỚI TRANG KIẾN THỨC (MAIN LAYOUT) */
+
+.kb-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    align-items: start;
+    gap: 24px;
+}
+
+.kb-results {
+    min-width: 0;
+}
+
+.kb-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 2px 0 14px;
+}
+
+.kb-section-heading h2 {
+    margin-top: 6px;
+    font-size: 1.2rem;
+}
+
+.kb-section-note {
+    color: var(--text-muted);
+    font-size: .76rem;
+}
+
+
+/* LƯỚI CÁC THẺ BÀI HỌC (3 CỘT CÂN ĐỐI TRÊN DESKTOP) */
+
+.kb-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+.kb-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 18px;
+    min-height: 226px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.kb-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 8px 24px -4px rgba(79, 70, 229, 0.15);
+}
+
+.kb-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+
+/* Badge Môn Học */
+
+.subject-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-math {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.badge-physics {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.badge-english {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.badge-chemistry {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.kb-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.kb-card-description {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.kb-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-glass);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+}
+
+.kb-read-more {
+    color: var(--accent-primary);
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+/* Empty State */
+
+.kb-empty-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+
+/* 4. SIDEBAR PHỤ & BÀI HỌC ĐÃ GHIM */
+
+.kb-sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 104px;
+}
+
+.pinned-card {
+    padding: 18px;
+}
+
+.pinned-card h3 {
+    margin-top: 6px;
+    font-size: 1rem;
+}
+
+.pinned-count {
+    display: inline-flex;
+    min-width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: var(--accent-primary);
+    font-size: .72rem;
+}
+
+.pinned-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+
+/* Tối ưu định dạng cho từng thẻ ghim bài học */
+
+.pinned-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-glass);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.pinned-item:hover {
+    border-color: var(--accent-primary);
+    background: #ffffff;
+}
+
+.pinned-icon {
+    font-size: 1.1rem;
+}
+
+.pinned-info,
+.pinned-item>div:not(.pinned-icon) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* Bỏ gạch chân link tiêu đề */
+
+.pinned-item a {
+    color: var(--accent-primary, #4f46e5);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    line-height: 1.35;
+    display: block;
+}
+
+.pinned-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* Tách biệt tên môn học xuống dòng dưới */
+
+.pinned-item a span,
+.pinned-item a small,
+.pinned-subject,
+.pinned-info span {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--text-muted, #64748b);
+    text-decoration: none;
+}
+
+
+/* Nút bỏ ghim [x] ở góc phải */
+
+.pinned-item button,
+.pinned-item .unpin-btn,
+.pinned-item [class*="unpin"],
+.pinned-item [class*="close"] {
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-glass, #cbd5e1);
+    background: transparent;
+    border-radius: 6px;
+    color: var(--text-muted, #64748b);
+    cursor: pointer;
+    font-size: 0.72rem;
+    transition: all 0.2s ease;
+}
+
+.pinned-item button:hover,
+.pinned-item .unpin-btn:hover {
+    background: #fef2f2;
+    color: #ef4444;
+    border-color: #fca5a5;
+}
+
+
+/* Tip Card Sidebar */
+
+.kb-tip-card {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 16px;
+    background: #0f172a;
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, .16);
+}
+
+.kb-tip-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.kb-tip-card strong {
+    font-size: .88rem;
+}
+
+.kb-tip-card p {
+    margin-top: 5px;
+    color: #cbd5e1;
+    font-size: .77rem;
+    line-height: 1.5;
+}
+
+
+/* 5. RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 1100px) {
+    .kb-hero-copy {
+        grid-template-columns: 1fr;
+    }
+    .kb-main-layout {
+        grid-template-columns: minmax(0, 1fr) 280px;
+        gap: 16px;
+    }
+    .kb-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .kb-main-layout {
+        grid-template-columns: 1fr;
+    }
+    .kb-sidebar-section {
+        position: static;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+        align-items: start;
+    }
+}
+
+@media (max-width: 700px) {
+    .kb-hero-section {
+        padding: 18px;
+        border-radius: 18px;
+    }
+    .kb-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .kb-shortcut {
+        white-space: normal;
+        padding-bottom: 0;
+    }
+    .kb-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .kb-sidebar-section {
+        grid-template-columns: 1fr;
+    }
+    .kb-card {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .knowledge-page-header .header-badge {
+        display: none;
+    }
+    .knowledge-page-header .header-actions {
+        flex-wrap: wrap;
+    }
+    .knowledge-page-header .header-actions .btn {
+        min-width: 0;
+    }
+    .kb-hero-copy h2 {
+        font-size: 1.32rem;
+    }
+    .kb-search-bar input {
+        font-size: .85rem;
+        padding-left: 42px;
+    }
+    .chip-btn {
+        padding: 7px 11px;
+        font-size: .78rem;
+    }
+    .kb-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+}
+
+
+/* =========================================================
+   FIX CSS KHO KIẾN THỨC & BÀI HỌC ĐÃ GHIM (NO HTML CHANGE)
+   ========================================================= */
+
+
+/* 1. ĐIỀU CHỈNH LƯỚI BÀI HỌC KHO KIẾN THỨC (3 CỘT X 2 HÀNG CÂN ĐỐI) */
+
+.kb-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    /* Ép cố định 3 cột cân đối trên PC */
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+
+/* Tablet & Màn hình vừa: Chuyển về 2 cột */
+
+@media (max-width: 1100px) {
+    .kb-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 16px !important;
+    }
+}
+
+
+/* Điện thoại: Chuyển về 1 cột */
+
+@media (max-width: 640px) {
+    .kb-cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+}
+
+
+/* 2. SỬA BÀI HỌC ĐÃ GHIM (BỎ GẠCH CHÂN, TÁCH DÒNG "TOÁN 9", SỬA NÚT [X]) */
+
+.pinned-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    padding: 12px !important;
+}
+
+
+/* Khối nội dung tiêu đề */
+
+.pinned-info,
+.pinned-item>div:not(.pinned-icon) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+
+/* Bỏ gạch chân mặc định của thẻ link tiêu đề */
+
+.pinned-item a {
+    color: var(--accent-primary, #4f46e5) !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    text-decoration: none !important;
+    line-height: 1.35 !important;
+    display: block !important;
+}
+
+.pinned-item a:hover {
+    text-decoration: underline !important;
+}
+
+
+/* Ép tên môn học (Toán 9) rớt xuống dòng riêng, chữ màu xám không bị gạch chân */
+
+.pinned-item a span,
+.pinned-item a small,
+.pinned-subject,
+.pinned-info span {
+    display: block !important;
+    margin-top: 3px !important;
+    font-size: 0.76rem !important;
+    font-weight: 500 !important;
+    color: var(--text-muted, #64748b) !important;
+    text-decoration: none !important;
+}
+
+
+/* Làm đẹp nút bỏ ghim [x] ở mép phải */
+
+.pinned-item button,
+.pinned-item .unpin-btn,
+.pinned-item [class*="unpin"],
+.pinned-item [class*="close"] {
+    margin-left: auto !important;
+    flex-shrink: 0 !important;
+    width: 22px !important;
+    height: 22px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid var(--border-glass, #cbd5e1) !important;
+    background: transparent !important;
+    border-radius: 6px !important;
+    color: var(--text-muted, #64748b) !important;
+    cursor: pointer !important;
+    font-size: 0.72rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.pinned-item button:hover,
+.pinned-item .unpin-btn:hover {
+    background: #fef2f2 !important;
+    color: #ef4444 !important;
+    border-color: #fca5a5 !important;
+}

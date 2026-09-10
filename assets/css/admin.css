@@ -1,0 +1,168 @@
+/* Lớp tiện ích ẩn màn hình */
+.hidden {
+  display: none !important;
+}
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Sidebar Styling */
+.admin-sidebar {
+  width: var(--sidebar-width, 250px);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-glass);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+}
+
+.admin-badge {
+  background: #eeedfe;
+  color: var(--accent-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  margin-left: 6px;
+}
+
+/* Fix lỗi active nhiều mục menu cùng lúc */
+.nav-menu .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md, 8px);
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-menu .nav-link.active {
+  background: #eeedfe;
+  color: var(--accent-primary);
+}
+
+.btn-logout {
+  width: 100%;
+  color: var(--accent-danger);
+  border-color: #fecaca;
+  background: #fff5f5;
+  justify-content: center;
+}
+
+/* Main Area */
+.admin-main {
+  margin-left: var(--sidebar-width, 250px);
+  flex: 1;
+  padding: 32px;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.admin-page-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.admin-page-sub {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* Grid & Tables */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.admin-stat-card, .admin-table-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.admin-stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.table-search-group {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-glass);
+  text-align: left;
+}
+
+/* Đồng bộ màu spinner với giao diện "terminal" đen/xanh lá của khung log */
+#logsBox .brx-loading-box {
+  color: #0f0;
+}
+
+#logsBox .brx-spinner {
+  border-color: rgba(0, 255, 0, .25);
+  border-top-color: #0f0;
+}
+
+.logs-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-family: monospace;
+  min-height: 200px;
+}

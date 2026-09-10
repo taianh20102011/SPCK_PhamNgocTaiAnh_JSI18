@@ -1,0 +1,466 @@
+/* =========================================================
+   BRAINLYX - BASIC & GLOBAL STYLES (LIGHT MODE EDITION)
+   ========================================================= */
+
+
+/* =========================================================
+   1. NHÚNG FONT PLUS JAKARTA SANS TỪ GOOGLE FONTS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* =========================================================
+   2. ÉP TẤT CẢ CÁC THẺ (KỂ CẢ INPUT, TEXTAREA, BUTTON) DÙNG CHUNG FONT
+   ========================================================= */
+
+*,
+*::before,
+*::after,
+input,
+textarea,
+select,
+button {
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+:root {
+    /* Bảng màu sáng nhã nhặn, chống mỏi mắt */
+    --bg-primary: #f8fafc;
+    /* Nền chính trắng kem xám nhạt */
+    --bg-secondary: #ffffff;
+    /* Nền Sidebar & Card trắng tinh */
+    --bg-glass: rgba(255, 255, 255, 0.85);
+    --border-glass: #e2e8f0;
+    /* Viền xám siêu nhẹ */
+    --accent-primary: #4f46e5;
+    /* Indigo đậm sắc nét */
+    --accent-secondary: #7c3aed;
+    /* Tím hiện đại */
+    --accent-success: #059669;
+    /* Xanh lá tươi */
+    --accent-warning: #d97706;
+    /* Cam ấm */
+    --accent-danger: #dc2626;
+    /* Đỏ */
+    --text-main: #0f172a;
+    /* Chữ đen xám đậm (dễ đọc) */
+    --text-muted: #64748b;
+    /* Chữ phụ xám trung tính */
+    --sidebar-width: 250px;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    /* Đổ bóng dịu mắt */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    min-height: 100vh;
+    /* overflow-x: hidden; */
+}
+
+
+/* Light Glassmorphism Card */
+
+.glass-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* App Layout */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    overflow-x: clip;
+}
+
+
+/* Sidebar Styling (Light) */
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-glass);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #eeedfe;
+    /* Tím nhạt siêu dịu */
+    color: var(--accent-primary);
+}
+
+.user-profile-summary {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-glass);
+}
+
+
+/* Main Content Area */
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 32px;
+}
+
+
+/* Level & EXP Progress Bar */
+
+.exp-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.exp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-success));
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+
+/* Buttons */
+
+.btn {
+    padding: 10px 15px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-primary);
+    color: var(--text-main);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+}
+
+.btn-primary:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+
+/* Forms & Inputs */
+
+.input-field {
+    width: 100%;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+
+/* =========================================================
+   PREMIUM FOOTER STYLES
+   ========================================================= */
+
+.site-footer {
+    background: #ffffff;
+    border-top: 1px solid var(--border-glass);
+    margin-top: 80px;
+    padding-top: 60px;
+    color: var(--text-main);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 48px 24px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 40px;
+}
+
+
+/* Cột thương hiệu */
+
+.footer-brand .brand {
+    margin-bottom: 12px;
+    display: inline-flex;
+}
+
+.brand-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 320px;
+}
+
+
+/* Social Buttons */
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+
+/* Tiêu đề các cột */
+
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-main);
+    letter-spacing: -0.2px;
+}
+
+
+/* Danh sách link */
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-primary);
+    transform: translateX(4px);
+}
+
+
+/* Cột liên hệ & status badge */
+
+.footer-contact-item {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.footer-contact-item span {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ecfdf5;
+    color: var(--accent-success);
+    border: 1px solid #a7f3d0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+
+/* Footer Bottom Bar */
+
+.footer-bottom {
+    border-top: 1px solid var(--border-glass);
+    padding: 20px 0;
+    background: var(--bg-primary);
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legal-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.legal-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: var(--accent-primary);
+}
+
+.legal-links .dot {
+    color: #cbd5e1;
+}
+
+
+/* Responsive Footer cho điện thoại & máy tính bảng */
+
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+
+/* ===== BrainlyX image branding ===== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    text-decoration: none;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.brand img {
+    display: block;
+    width: 186px;
+    height: 100px !important;
+    max-width: 100%;
+}
+
+.sidebar .brand img {
+    width: 172px;
+}
+
+.auth-brand img {
+    width: 190px;
+}
+
+.app-page-header {
+    position: sticky;
+    top: 0;
+    /* Hoặc top: 12px tùy khoảng cách mong muốn */
+    z-index: 90;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+}

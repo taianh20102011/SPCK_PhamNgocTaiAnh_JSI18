@@ -1,0 +1,72 @@
+/* =========================================================
+   DASHBOARD STYLES
+   ========================================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.widget-large { grid-column: span 2; }
+.widget-full { grid-column: span 3; }
+
+/* Pomodoro Widget */
+.pomo-timer-display {
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 16px 0;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+  color: var(--accent-primary);
+}
+
+.pomo-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Stats Overview */
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-success);
+}
+
+/* Grid Môn học khung động */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* AI Assistant Mini Widget */
+.ai-quick-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.ai-response-area {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: var(--radius-md);
+  min-height: 60px;
+  font-size: 0.95rem;
+}

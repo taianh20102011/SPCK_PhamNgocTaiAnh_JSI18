@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Quản Lý Người Dùng</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/admin.css">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar admin-sidebar">
+      <div class="brand brand-admin" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"><span class="admin-badge"><span style="color: black;">ADMIN</span></span></div>
+      <ul class="nav-menu">
+        <li><a href="overview.html" class="nav-link">📊 Tổng quan</a></li>
+        <li><a href="users.html" class="nav-link active">👥 Quản lý người dùng</a></li>
+        <li><a href="content.html" class="nav-link">📚 Kho kiến thức</a></li>
+        <li><a href="logs.html" class="nav-link">📜 Nhật ký hệ thống</a></li>
+        <li><a href="settings.html" class="nav-link">⚙️ Cấu hình</a></li>
+      </ul>
+      <button class="btn" data-action="logout" style="margin-top:auto;color:var(--accent-danger);">↪ Đăng xuất</button>
+    </aside>
+
+    <main class="main-content admin-main">
+      <header class="admin-topbar">
+        <h2>Quản Lý Người Dùng</h2>
+      </header>
+
+      <section class="admin-view">
+        <!-- FORM THÊM NGƯỜI DÙNG BỔ SUNG SỐ ĐT & KHỐI LỚP -->
+        <form id="addUserForm" style="margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+          <input type="text" id="userName" placeholder="Họ và Tên" required>
+          <input type="email" id="userEmail" placeholder="Email" required>
+          <input type="tel" id="userPhone" placeholder="Số điện thoại">
+          
+          <select id="userGrade">
+            <option value="">-- Khối --</option>
+            <option value="6">Khối 6</option>
+            <option value="7">Khối 7</option>
+            <option value="8">Khối 8</option>
+            <option value="9">Khối 9</option>
+            <option value="10">Khối 10</option>
+            <option value="11">Khối 11</option>
+            <option value="12">Khối 12</option>
+          </select>
+
+          <select id="userRole">
+            <option value="student">Học sinh</option>
+            <option value="admin">Admin</option>
+          </select>
+          
+          <button type="submit" class="btn btn-primary">+ Thêm Lên Firebase</button>
+        </form>
+
+        <div class="admin-table-container">
+          <table class="admin-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+              <tr style="border-bottom: 2px solid #eee; height: 40px;">
+                <th>ID</th>
+                <th>Họ & Tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Khối Lớp</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="adminUserTableBody">
+              <tr><td colspan="7">Đang tải...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="usersPagination" class="brx-pagination"></div>
+      </section>
+    
+      <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="../user/feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+</main>
+  </div>
+  <script src="../../../assets/js/menu-toggle.js"></script>
+  <script type="module" src="../../../assets/js/tabs-admin/users.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+</html>
