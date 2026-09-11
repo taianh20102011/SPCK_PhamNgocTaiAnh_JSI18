@@ -1238,9 +1238,6 @@ textarea:focus-visible,
     border-top-color: #ffffff;
 }
 
-
-/* Khối chờ dùng để thay thế nội dung 1 danh sách/khung trong lúc tải dữ liệu */
-
 .brx-loading-box {
     display: flex;
     flex-direction: column;
@@ -1253,9 +1250,6 @@ textarea:focus-visible,
     grid-column: 1 / -1;
 }
 
-
-/* Trạng thái nút khi đang xử lý bất đồng bộ (lưu / xoá / tải lên...) */
-
 .btn.is-loading,
 button.is-loading {
     display: inline-flex;
@@ -1265,9 +1259,6 @@ button.is-loading {
     pointer-events: none;
     opacity: .85;
 }
-
-
-/* Overlay mờ phủ lên 1 khối đang xử lý (VD: ảnh đại diện đang tải lên) */
 
 .brx-loading-overlay {
     position: absolute;
