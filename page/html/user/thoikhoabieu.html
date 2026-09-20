@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainlyX - Thời khóa biểu</title>
+  <link rel="stylesheet" href="../../../assets/css/basic.css">
+  <link rel="stylesheet" href="../../../assets/css/timetable.css?v=20260918">
+  <link rel="stylesheet" href="../../../assets/css/responsive.css">
+  <link rel="stylesheet" href="../../../assets/css/app-shell.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="brand" aria-label="BrainlyX"><img src="../../../assets/images/brainlyx-logo.svg" alt="BrainlyX"></div>
+      <ul class="nav-menu">
+        <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+        <li><a href="thoikhoabieu.html" class="nav-link active">📅 Thời khóa biểu</a></li>
+        <li><a href="note.html" class="nav-link">📝 Sổ tay</a></li>
+        <li><a href="quiz.html" class="nav-link">🧠 Luyện tập</a></li>
+        <li><a href="knowledge.html" class="nav-link">📚 Kho kiến thức</a></li>
+      </ul>
+
+      <!-- User Profile Widget Container -->
+      <div class="user-profile-summary">
+        <div style="display: flex; justify-content: space-between;">
+          <span id="user-display-name" style="font-weight: 700;">Đang tải...</span>
+          <span id="user-level" style="color: var(--accent-warning); font-weight: 700;">Lv.1</span>
+        </div>
+        <div class="exp-bar-container">
+          <div id="user-exp-bar" class="exp-bar-fill"></div>
+        </div>
+        <!-- Các nút phụ của profile có thể bật lại khi cần. -->
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="app-page-header">
+        <div>
+          <h1>Thời khóa biểu</h1>
+          <p>Quản lý lịch học, lịch kiểm tra, deadline và thời gian tập trung.</p>
+        </div>
+        <div class="header-actions">
+          <span class="header-badge">📅 BrainlyX</span>
+          <a class="btn" href="user.html">👤 Hồ sơ</a>
+          <button class="btn" data-action="logout">Đăng xuất</button>
+        </div>
+      </header>
+
+      <section class="stats-cards">
+        <div class="glass-card stat-item"><span>📚 Lịch học</span><strong id="studyCount" class="stat-value">0</strong></div>
+        <div class="glass-card stat-item"><span>📝 Lịch kiểm tra</span><strong id="examCount" class="stat-value">0</strong></div>
+        <div class="glass-card stat-item"><span>⏰ Deadline chưa xong</span><strong id="deadlineCount" class="stat-value">0</strong></div>
+        <div class="glass-card stat-item"><span>⏱ Tổng thời gian học</span><strong id="studyMinutes" class="stat-value">0 phút</strong></div>
+      </section>
+
+      <section class="week-toolbar">
+        <div><span class="eyebrow">TUẦN HỌC</span><h2 id="weekTitle">Lịch học của bạn</h2></div>
+        <div class="week-actions">
+          <button class="btn" id="prevWeek" type="button">‹</button>
+          <button class="btn" id="todayWeek" type="button">Hôm nay</button>
+          <button class="btn" id="nextWeek" type="button">›</button>
+        </div>
+      </section>
+      <div class="week-days"><div>THỨ 2</div><div>THỨ 3</div><div>THỨ 4</div><div>THỨ 5</div><div>THỨ 6</div><div>THỨ 7</div><div>CHỦ NHẬT</div></div>
+      <div id="weekTimeline" class="week-timeline" aria-live="polite"></div>
+
+      <div class="timetable-grid">
+        <section class="glass-card">
+          <div class="section-title"><div><span class="section-kicker">KẾ HOẠCH</span><h2>📚 Lịch học</h2></div><button class="btn btn-primary" id="addStudyBtn" type="button">+ Thêm lịch</button></div>
+          <div id="studyList" class="simple-list"></div>
+        </section>
+
+        <section class="glass-card">
+          <div class="section-title"><div><span class="section-kicker">SẮP TỚI</span><h2>📝 Lịch kiểm tra</h2></div><button class="btn btn-primary" id="addExamBtn" type="button">+ Thêm kiểm tra</button></div>
+          <div id="examList" class="simple-list"></div>
+        </section>
+
+        <section class="glass-card">
+          <div class="section-title"><div><span class="section-kicker">CẦN HOÀN THÀNH</span><h2>⏰ Deadline</h2></div><button class="btn btn-primary" id="addDeadlineBtn" type="button">+ Thêm deadline</button></div>
+          <div id="deadlineList" class="simple-list"></div>
+        </section>
+
+        <section class="glass-card pomodoro-card">
+          <div class="pomodoro-top"><span class="section-kicker">FOCUS MODE</span><span class="live-dot">● Đang sẵn sàng</span></div>
+          <h2>⏱ Pomodoro Timer</h2>
+          <p id="focusDescription">25 phút tập trung → 5 phút nghỉ.</p>
+          <div class="pomodoro-settings">
+            <label for="focusMinutes">Thời gian tập trung</label>
+            <div class="pomodoro-setting-row">
+              <input id="focusMinutes" type="number" min="1" max="120" value="25" aria-label="Số phút tập trung">
+              <span>phút</span>
+              <button class="btn" id="applyFocusMinutes" type="button">Áp dụng</button>
+            </div>
+          </div>
+          <div id="timer" class="timer">25:00</div>
+          <div class="timer-buttons">
+            <button class="btn btn-primary" id="startBtn" type="button">Bắt đầu</button>
+            <button class="btn" id="pauseBtn" type="button">Tạm dừng</button>
+            <button class="btn" id="resetBtn" type="button">Đặt lại</button>
+          </div>
+          <div class="progress"><span id="timerProgress"></span></div>
+          <h3>📈 Lịch sử học gần đây</h3>
+          <div id="historyList" class="simple-list"></div>
+        </section>
+      </div>
+
+      <footer class="app-footer"><span>© 2026 BrainlyX • Nền tảng học tập cá nhân</span><span><a href="feedback.html">Góp ý</a> · <a href="../../../index.html">Trang chủ</a></span></footer>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button id="closeModal" class="close" type="button">×</button>
+      <h2 id="modalTitle">Thêm dữ liệu</h2>
+      <form id="dataForm">
+        <input type="hidden" id="dataType">
+        <label id="nameLabel" for="nameInput">Tên</label><input id="nameInput" required placeholder="Ví dụ: Toán học">
+        <label id="dateLabel" for="dateInput">Ngày</label><input id="dateInput" type="date" required>
+        <label id="timeLabel" for="timeInput">Giờ</label><input id="timeInput" type="time">
+        <div id="durationField">
+          <label for="durationInput">Thời lượng học</label>
+          <select id="durationInput">
+            <option value="15">15 phút</option>
+            <option value="30">30 phút</option>
+            <option value="60" selected>1 giờ</option>
+            <option value="90">1 giờ 30 phút</option>
+            <option value="120">2 giờ</option>
+            <option value="180">3 giờ</option>
+            <option value="240">4 giờ</option>
+            <option value="custom">Tự nhập</option>
+          </select>
+          <input id="customDurationInput" type="number" min="1" max="1440" placeholder="Nhập số phút" hidden>
+        </div>
+        <label id="extraLabel" for="extraInput">Ghi chú</label><input id="extraInput" placeholder="Phòng, giáo viên hoặc nội dung">
+        <button class="btn btn-primary full" type="submit">Lưu</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../../assets/js/menu-toggle.js"></script>
+  <script type="module" src="../../../assets/js/timetable.js"></script>
+  <script type="module" src="../../../assets/js/app-shell.js"></script>
+</body>
+</html>
