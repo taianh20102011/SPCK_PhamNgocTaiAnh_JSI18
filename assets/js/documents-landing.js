@@ -38,7 +38,8 @@ function fetchDocuments() {
     currentPage = 1;
     renderDocuments(allDocuments);
   }, (error) => {
-    console.error("Lỗi lấy kho tài liệu:", error);
+    // Rules chưa publish hoặc mạng lỗi: dùng dữ liệu mẫu thay vì làm hỏng landing page.
+    console.warn("Không tải được kho tài liệu từ Firebase, dùng dữ liệu mẫu:", error);
     // Nếu chưa tạo collection 'documents' trên Firestore, hiển thị mẫu mặc định
     renderFallbackData();
   });

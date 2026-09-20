@@ -410,3 +410,167 @@
 .legal-links .dot {
   color: #cbd5e1;
 }
+
+/* Landing page mobile layout. The app/sidebar breakpoints in responsive.css do not cover this header. */
+@media (max-width: 768px) {
+  .landing-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, .06);
+  }
+
+  .header-container {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 16px;
+  }
+
+  .landing-header .brand {
+    align-self: center;
+    margin: 0;
+  }
+
+  .landing-header .brand img {
+    width: 112px;
+    height: auto;
+  }
+
+  .landing-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+  }
+
+  .landing-nav a {
+    min-width: 0;
+    padding: 8px 4px;
+    overflow: hidden;
+    font-size: .76rem;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+
+  .landing-nav .btn-feedback {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 9px 12px;
+  }
+
+  .landing-header .header-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 8px;
+  }
+
+  .landing-header .header-actions .btn {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: .78rem;
+    text-align: center;
+  }
+
+  .hero-section {
+    padding: 36px 16px 32px;
+  }
+
+  .badge-pill {
+    max-width: 100%;
+    font-size: .75rem;
+    line-height: 1.4;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.8rem, 8vw, 2.35rem);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: .95rem;
+  }
+
+  .hero-buttons {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .section-container {
+    padding: 40px 16px;
+  }
+
+  .section-title h2,
+  .cta-card h2 {
+    font-size: 1.55rem;
+  }
+
+  .section-title p {
+    font-size: .9rem;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .select-filter {
+    width: 100%;
+    max-width: none;
+  }
+
+  .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cta-section {
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+
+  .cta-card {
+    padding: 32px 18px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 16px 32px;
+  }
+
+  .footer-bottom-container {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 16px;
+  }
+
+  .legal-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .landing-header .brand img {
+    width: 112px;
+  }
+
+  .landing-header .header-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-nav a {
+    font-size: .76rem;
+  }
+}

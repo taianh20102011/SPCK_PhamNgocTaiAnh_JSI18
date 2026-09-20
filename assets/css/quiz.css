@@ -105,3 +105,37 @@
 .flashcard-card:hover {
   border-color: var(--accent-primary);
 }
+
+/* Keep the quiz title and score readable on narrow screens. */
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 12px;
+  }
+
+  .quiz-container > .glass-card:first-child {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start !important;
+    gap: 12px;
+    padding: 16px !important;
+  }
+
+  #quiz-title {
+    min-width: 0;
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  #quiz-score {
+    display: inline-block;
+    min-width: 1.2em;
+    text-align: center;
+  }
+
+  .quiz-option {
+    padding: 13px 12px;
+    font-size: .88rem;
+  }
+}

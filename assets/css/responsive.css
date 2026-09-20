@@ -1380,6 +1380,36 @@ button.is-loading {
     }
 }
 
+/* Knowledge filters must wrap on mobile instead of being clipped by the horizontal scroller above. */
+@media (max-width: 768px) {
+    .kb-toolbar,
+    .kb-toolbar > div,
+    .filter-chips,
+    .kb-filter-chips {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        overflow: visible !important;
+        gap: 7px;
+    }
+
+    .kb-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filter-chips .chip-btn,
+    .kb-filter-chips .chip-btn {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+}
+
 @media (max-width:380px) {
     .brand img,
     .sidebar .brand img {

@@ -555,6 +555,23 @@
     }
 }
 
+@media (max-width: 700px) {
+    .filter-chips,
+    .kb-filter-chips {
+        width: 100%;
+        flex-wrap: wrap;
+        overflow: visible;
+        gap: 7px;
+    }
+
+    .chip-btn {
+        flex: 1 1 auto;
+        min-width: 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+}
+
 
 /* =========================================================
    FIX CSS KHO KIẾN THỨC & BÀI HỌC ĐÃ GHIM (NO HTML CHANGE)
