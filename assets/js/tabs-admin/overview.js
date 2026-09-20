@@ -14,11 +14,19 @@ async function fetchStats() {
     const usersSnap = await getDocs(collection(db, "users"));
     const notesSnap = await getDocs(collection(db, "notes"));
 
-    document.getElementById('statTotalUsers').textContent = usersSnap.size.toLocaleString();
-    document.getElementById('statTotalNotes').textContent = notesSnap.size.toLocaleString();
-    document.getElementById('statAiRequestsToday').textContent = "128"; // Static hoặc đếm từ collection logs
+    const totalUsers = document.getElementById('statTotalUsers');
+    const totalNotes = document.getElementById('statTotalNotes');
+    const aiRequests = document.getElementById('statAiRequestsToday');
+
+    if (totalUsers) totalUsers.textContent = usersSnap.size.toLocaleString();
+    if (totalNotes) totalNotes.textContent = notesSnap.size.toLocaleString();
+    if (aiRequests) aiRequests.textContent = "128"; // Static hoặc đếm từ collection logs
   } catch (err) {
     console.error("Lỗi lấy thống kê:", err);
+    ['statTotalUsers', 'statTotalNotes'].forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = '--';
+    });
   }
 }
 
