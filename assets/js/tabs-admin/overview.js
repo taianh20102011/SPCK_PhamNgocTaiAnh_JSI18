@@ -12,14 +12,13 @@ async function fetchStats() {
   setLoadingState();
   try {
     const usersSnap = await getDocs(collection(db, "users"));
-    const notesSnap = await getDocs(collection(db, "notes"));
 
     const totalUsers = document.getElementById('statTotalUsers');
     const totalNotes = document.getElementById('statTotalNotes');
     const aiRequests = document.getElementById('statAiRequestsToday');
 
     if (totalUsers) totalUsers.textContent = usersSnap.size.toLocaleString();
-    if (totalNotes) totalNotes.textContent = notesSnap.size.toLocaleString();
+    if (totalNotes) totalNotes.textContent = '--';
     if (aiRequests) aiRequests.textContent = "128"; // Static hoặc đếm từ collection logs
   } catch (err) {
     console.error("Lỗi lấy thống kê:", err);
