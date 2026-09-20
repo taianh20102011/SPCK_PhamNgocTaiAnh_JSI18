@@ -163,11 +163,6 @@ a {
     .header-actions .btn,
     .header-badge {
         font-size: .76rem;
-<<<<<<< HEAD
-=======
-        text-align: center;
-        text-overflow: ellipsis;
->>>>>>> cd15854 (Initial commit)
     }
     .dashboard-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -245,10 +240,6 @@ a {
     .header-badge {
         padding: 8px 10px;
         font-size: .72rem;
-<<<<<<< HEAD
-=======
-        text-align: center;
->>>>>>> cd15854 (Initial commit)
     }
     .dashboard-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -326,10 +317,6 @@ a {
 .header-actions .btn,
 .header-badge {
     white-space: nowrap;
-<<<<<<< HEAD
-=======
-    text-align: center;
->>>>>>> cd15854 (Initial commit)
 }
 
 .app-footer {
@@ -844,10 +831,6 @@ textarea.input-field {
         grid-column: 1 / -1;
         width: max-content;
         max-width: 100%;
-<<<<<<< HEAD
-=======
-        text-align: center;
->>>>>>> cd15854 (Initial commit)
     }
     .header-actions .btn {
         width: 100%;
@@ -1038,10 +1021,6 @@ textarea.input-field {
     .header-actions .btn,
     .header-actions .header-badge {
         font-size: .7rem;
-<<<<<<< HEAD
-=======
-        text-align: center;
->>>>>>> cd15854 (Initial commit)
     }
     .stats-cards {
         grid-template-columns: 1fr !important;
@@ -1097,10 +1076,6 @@ textarea.input-field {
     .header-actions .header-badge {
         width: 100%;
         justify-content: center;
-<<<<<<< HEAD
-=======
-        text-align: center;
->>>>>>> cd15854 (Initial commit)
     }
     .nav-link {
         font-size: .82rem;
@@ -1426,128 +1401,4 @@ body {
     overflow-x: clip;
     /* Đổi từ hidden sang clip */
     -webkit-text-size-adjust: 100%;
-<<<<<<< HEAD
 }
-=======
-}
-
-/* =========================================================
-   SIDEBAR DESKTOP/LAPTOP - THU GỌN
-   Khi thu gọn: chỉ còn logo + icon.
-   ========================================================= */
-.sidebar-collapse-btn {
-    position: absolute;
-    top: 18px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #dbe3ef;
-    border-radius: 50%;
-    background: #ffffff;
-    color: #475569;
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-    box-shadow: 0 5px 16px rgba(15, 23, 42, .12);
-    z-index: 120;
-    transition: .2s ease;
-}
-
-.sidebar-collapse-btn:hover {
-    transform: scale(1.08);
-    color: var(--accent-primary);
-}
-
-.nav-icon {
-    width: 24px;
-    min-width: 24px;
-    text-align: center;
-    font-size: 1.05rem;
-}
-
-.nav-label {
-    white-space: nowrap;
-    transition: opacity .18s ease;
-}
-
-@media (min-width: 769px) {
-    .sidebar {
-        width: var(--sidebar-width);
-        transition: width .22s ease, padding .22s ease;
-    }
-
-    .main-content {
-        margin-left: var(--sidebar-width);
-        transition: margin-left .22s ease;
-    }
-
-    .sidebar.sidebar-collapsed {
-        width: 78px;
-        padding-left: 11px;
-        padding-right: 11px;
-    }
-
-    .main-content:has(+ *) { }
-
-    body:has(.sidebar.sidebar-collapsed) .main-content {
-        margin-left: 78px;
-    }
-
-    .sidebar.sidebar-collapsed .brand {
-        justify-content: center;
-        margin: 12px 0 26px;
-    }
-
-    .sidebar.sidebar-collapsed .brand {
-        width: 52px;
-        height: 52px;
-        background-image: url("../images/brainlyx-logo.svg");
-        background-repeat: no-repeat;
-        background-position: center top;
-        background-size: 70px auto;
-        overflow: hidden;
-    }
-
-    .sidebar.sidebar-collapsed .brand img {
-        visibility: hidden;
-        width: 52px;
-        height: 52px;
-    }
-
-    .sidebar.sidebar-collapsed .nav-link {
-        justify-content: center;
-        gap: 0;
-        padding: 12px 8px;
-    }
-
-    .sidebar.sidebar-collapsed .nav-label {
-        display: none;
-    }
-
-    .sidebar.sidebar-collapsed .nav-icon {
-        font-size: 1.18rem;
-    }
-
-    .sidebar.sidebar-collapsed .user-profile-summary {
-        padding-top: 12px;
-    }
-
-    .sidebar.sidebar-collapsed .user-profile-summary > div {
-        display: none !important;
-    }
-
-    .sidebar.sidebar-collapsed .exp-bar-container {
-        height: 6px;
-    }
-
-    .sidebar.sidebar-collapsed .sidebar-collapse-btn {
-        right: -15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .sidebar-collapse-btn {
-        display: none;
-    }
-}
->>>>>>> cd15854 (Initial commit)
